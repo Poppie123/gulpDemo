@@ -1,8 +1,0 @@
-.box1, .box, .box2 {
-  width: 100px;
-  height: 200px;
-  border: 1px solid red; }
-
-.box {
-  font-size: 30px;
-  color: blue; }
