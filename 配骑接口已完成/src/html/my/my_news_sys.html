@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/iconfont.css">
+    <title>系统消息</title>
+    <style>
+    .container{
+        padding-bottom: .2rem;
+        padding-top: .88rem;
+    }
+    .container .head p{
+        margin-left: -.36rem;
+        font-size: .36rem;
+    }
+    /* 页面内容 */
+    .main{
+        width: 100%;
+        height: auto;
+        padding: 0 .27rem;
+    }
+    li{
+        width: 100%;
+        height: 1.28rem;
+        background: #fff;
+        border-radius:4px;
+        margin-top: .2rem;
+        padding: .29rem .3rem .29rem .5rem;
+    }
+    .main_top{
+        width: 100%;
+        height: .3rem;
+        overflow: hidden;
+        line-height: .3rem;
+        margin-bottom: .18rem;
+    }
+    .small{
+        width: .07rem;
+        height: .07rem;
+        border-radius: 50%;
+        background: #FF0000;
+        margin: .12rem .3rem 0 0;
+    }
+    .main_topr{
+        width: 100%;
+        height: .3rem;
+        margin-right: .4rem;
+        font-size: .28rem;
+        color: #333;
+    }
+    .main_bot{
+        width: 100%;
+        height: .25rem;
+        font-size: .24rem;
+        line-height: .25rem;
+    }
+    .main_botl{
+        width: auto;
+        height: .25rem;
+        color: #ccc;
+    }
+    .main_botr{
+        width: auto;
+        height: .25rem;
+        color: #9C53F6;
+    }
+    .main_botr i{
+        font-size: .2rem;
+        margin-left: .05rem;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 页面头部 -->
+        <div  class="head flexc">
+            <i id="hrefh" class="iconfont iconiconfontjiantou1"></i>
+            <p>系统消息</p>
+            <span></span>
+        </div>
+        <!-- 页面内容 -->
+        <div class="main">
+            <ul>
+                <li>
+                    <div class="main_top flex">
+                        <div class="small"></div>
+                        <div class="main_topr ellipse">配骑商城与品牌商签约，大量优质品牌入驻，到场</div>
+                    </div>
+                    <div class="main_bot flexc">
+                        <div class="main_botl">2019-05-06  10:22</div>
+                        <div class="main_botr flex">
+                            <span>查看详情</span>
+                            <i class="iconfont icongengduo"></i>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="main_top flex">
+                        <div class="small none"></div>
+                        <div class="main_topr ellipse">配骑商城节日活动篇5.21</div>
+                    </div>
+                    <div class="main_bot flexc">
+                        <div class="main_botl">2019-05-01  11:34</div>
+                        <div class="main_botr flex">
+                            <span>查看详情</span>
+                            <i class="iconfont icongengduo"></i>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            
+        </div>
+
+
+    </div>
+    <script src="../../js/common.js"></script>
+    <script src="../../js/iconfont.js"></script>
+    <script src="../../js/jquery-3.3.1.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        //返回上一页
+        $('#hrefh').click(function(){
+            history.go(-1);
+        })
+        //新闻详情
+        $('.main li:eq(0)').click(function(){
+            window.location.href='./my_newsview.html';
+        })
+    })
+    </script>
+</body>
+</html>

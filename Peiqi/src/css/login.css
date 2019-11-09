@@ -1,0 +1,57 @@
+body{
+    background:rgba(255,255,255,1);
+}
+/* 头部登录开始 */
+.header{
+    display: flex;
+    align-items: center;
+    width:100%;
+    height:1.1rem; 
+    top: 0;
+    font-size: 0;
+}
+
+.iconiconfontjiantou1{
+    margin-left:.28rem;
+    margin-top: .69rem;
+    font-size: .3rem;
+    color:#DDDDDD;
+}
+
+/* 验证开始 */
+.center{
+    width: 100%;
+}
+input::-webkit-input-placeholder {
+    font-size:.28rem;
+    font-weight:400;
+    color:rgba(153,153,153,1);
+}
+.welcome{ 
+    margin-left:.78rem;
+    margin-top: .38rem;
+    font-size:.40rem;
+    font-weight:bold;
+    color:rgba(51,51,51,1);
+    line-height:.64rem;
+}
+.phone-content, .code-content{
+    font-size:.28rem;
+    font-weight:400;
+    color:rgba(153,153,153,1);
+    width: 5.90rem;
+    border-bottom: 1px solid rgba(221,221,221,1);
+    line-height: .96rem;
+}
+.phone-content{
+    margin: 1rem auto 0;
+}
+.code-content{
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+#getcode{
+    color:rgba(156,83,246,1);
+} 

@@ -1,0 +1,256 @@
+body{
+    background:rgba(245,245,249,1);
+    /* height: 26rem; */
+}
+.box{
+    top: 0;
+    width: 100%;
+    height: auto;
+}
+.box-content{
+    top: 0;
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+}
+
+/* 头部开始 */
+.header{
+    display: flex;
+    align-items: center;
+    width:100%;
+    height:.93rem; 
+    top: 0;
+    font-size: 0;
+    background: #FFFFFF;
+}
+
+.iconiconfontjiantou1{
+    margin-left:.28rem;
+    font-size: .3rem;
+    color:#999999;
+}
+.header-write{ 
+    margin-left:2.6rem;
+    text-align: center;
+    font-size:.36rem;
+    font-weight:400;
+    color:rgba(51,51,51,1);
+}
+
+/* 导航部分开始 */
+.nav{
+    width: 100%;
+    height: 1.01rem;
+    background: #FFFFFF;
+}
+.nav-content{
+    display: flex;
+    justify-content: space-around;
+}
+.nav-item{
+    margin-top: .35rem;
+    font-size:.28rem;
+    font-weight:400;
+    color:rgba(153,153,153,1);
+}
+.active{
+    color:rgba(156,83,246,1);
+    padding-bottom: 0.25rem;
+    border-bottom: .02rem solid rgba(156,83,246,1);
+    border-radius:.01rem;
+}
+.nav-item:active{
+    color:rgba(156,83,246,1);
+    padding-bottom: 0.25rem;
+    border-bottom: .02rem solid rgba(156,83,246,1);
+    border-radius:.01rem;
+}
+
+/* 待付款开始 */
+.order{
+    width: 100%;
+    height: auto;
+    margin-top: .1rem;
+}
+.order-first{
+    margin-top: 1.95rem;
+}
+/* .order-second{
+    width: 100%;
+    height: auto;
+    margin-top:0;
+} */
+.order-second{
+    width: 100%;
+    height: auto;
+}
+.many-order{
+    width: 100%;
+    background: rgba(255,255,255,1);
+}
+.order-number{
+    display: flex;
+    justify-content: space-between;
+    padding-top: .27rem;
+    background: #FFFFFF;
+}
+.first{
+    margin-left:.28rem;
+    font-size:.24rem;
+    font-weight:400;
+    color:rgba(153,153,153,1);
+}
+.third{
+    margin-right:.28rem;
+    font-size:.28rem;
+    font-weight:400;
+    color:rgba(156,83,246,1);
+}
+.second{
+    font-size:.28rem;
+    font-weight:400;
+    color:rgba(153,153,153,1);
+}
+.product{
+    position: relative;
+    height: 1.73rem;
+    margin-bottom: .4rem;
+}
+.product img{
+    position: absolute;
+    widows: 1.46rem;
+    height: 1.46rem;
+    margin-left: .27rem;
+    margin-top: .3rem;
+}
+.ft{
+    position: absolute;
+    font-weight:400;
+}
+.warter{
+    font-size:.28rem;
+    color:rgba(51,51,51,1);
+    margin-left: 1.95rem;
+    margin-top: .28rem;
+}
+.ml{
+    font-size:.24rem;
+    color:rgba(153,153,153,1);
+    margin-left: 1.96rem;
+    margin-top: .85rem;
+}
+.ft-right{
+    font-size:.28rem;
+    color:rgba(153,153,153,1);
+    margin-left: 7.01rem;
+    margin-top: .85rem;
+}
+.ft-money{
+    font-size:.28rem;
+    color:rgba(51,51,51,1);
+    margin-left: 6.1rem;
+    margin-top: 1.25rem;
+}
+.line{
+    margin-top:.38rem;
+    width:5.91rem;
+    height:1px;
+    background:rgba(238,238,238,1);
+    margin-left: 1.59rem;
+}
+.line-all{
+    width: 100%;
+    margin-left: 0;
+    margin-top: -.2rem;
+}
+/* 结算开始 */
+.order-bottom{
+    height: 2.04rem;
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+}
+.fr-left{
+    margin-left: .29rem;
+    font-size:.24rem;
+    font-weight:400;
+    color:rgba(153,153,153,1);
+}
+.fr-bottom{
+    /* display: flex;
+    justify-content: space-between; */
+    width: 100%;
+    height: 1.04rem;
+    line-height: 1.04rem;
+    position: relative;
+    overflow: hidden;
+}
+.many-pro .second{
+    color:rgba(51,51,51,1); 
+}
+.many-pro{
+    position: absolute;
+    margin-left: 3.18rem;
+    color:rgba(51,51,51,1); 
+}
+.order-money{
+    position: absolute;
+    margin-left: 4.67rem;
+    color:rgba(51,51,51,1);
+}
+.fr-money{
+    position: absolute;
+    font-size:.36rem;
+    color:rgba(51,51,51,1);
+    margin-left:5.78rem;
+    margin-right: 0;
+}
+
+.order-item{
+    font-size:.28rem;
+    width:1.80rem;
+    height:.60rem;
+    border:.01rem solid rgba(221,221,221,1);
+    border-radius:.06rem;
+    text-align: center;
+    line-height: .6rem;
+}
+.cancel-order{
+    position: absolute;
+    margin-left: 3.2rem;
+    margin-top: 1.04rem;
+}
+.go-pay{
+    position: absolute;
+    margin-left: 5.41rem;
+    margin-top: 1.04rem;
+    background:rgba(156,83,246,1);
+    color:rgba(255,255,255,1);
+}
+
+/* 待发货开始 */
+.appli-draw{
+    position: absolute;
+    margin-top: 1.04rem;
+    margin-left: 5.41rem;
+    border:.01rem solid rgba(178,116,255,1);
+    border-radius:.06rem;
+    color:rgba(156,83,246,1);
+}
+.draw{
+    position: absolute;
+    font-size:.28rem;
+    font-weight:400;
+    color:rgba(153,153,153,1);
+    margin-top: 1.04rem;
+    margin-left: .28rem;
+    line-height: .6rem;
+}
+.draw .draw-ing{
+    color: #333C3C;
+}
+
+.delete{
+    margin-left: 5.41rem;
+}

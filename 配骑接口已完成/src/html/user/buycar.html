@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/iconfont.css">
+    <link rel="stylesheet" href="../../css/hui.css">
+    <title>购物车</title>
+    <style>
+    .container .head p{
+        margin-left: 1.1rem;
+        font-size: .36rem;
+    }
+    .container{
+        width: 100%;
+        height: 100%;
+    }
+        .headr{
+            width: 1.5rem;
+            height: 100%;
+            text-align: end;
+        }
+        /* 页面内容 */
+        .main {
+            width: 100%;
+            height: auto;
+            padding: 1.1rem .29rem 2rem .28rem;
+        }
+        .main li {
+            width: 100%;
+            height: 2.24rem;
+            background: #fff;
+            padding: .3rem .22rem .3rem .2rem;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: .2rem;
+        }
+        .mainl {
+            width: .43rem;
+            height: .4rem;
+            border: 1px solid rgba(51, 60, 60, 1);
+            border-radius: 50%;
+            margin: .65rem .17rem 0 0;
+            box-sizing: border-box;
+        }
+        .mainl i {
+            color: #9C53F6;
+            font-size: .35rem;
+            position: relative;
+        }
+        .mainr {
+            width: 100%;
+            height: 1.63rem;
+            overflow: hidden;
+        }
+        .mainr img {
+            width: 1.63rem;
+            height: 1.63rem;
+            margin-right: .22rem;
+        }
+        .mainrr {
+            width: 100%;
+            height: 1.63rem;
+        }
+        .pro_name {
+            width: 100%;
+            height: .67rem;
+            font-size: .24rem;
+            color: #333;
+            line-height: .35rem;
+        }
+        .mainrr p {
+            font-size: .28rem;
+            color: #999;
+            margin-top: .1rem;
+        }
+     .pro_much {
+            width: 100%;
+            height: .36rem;
+            margin-top: .1rem;
+        }
+        .pro_much span {
+            font-size: .28rem;
+            color: #F5B443;
+            font-weight: bold;
+        }
+        .pro_muchr {
+            width: 1.49rem;
+            height: .36rem;
+            border: 1px solid rgba(204, 204, 204, 1);
+            line-height: .36rem;
+            font-size: .28rem;
+        }
+        .pro_add {
+            width: .46rem;
+            height: .36rem;
+            text-align: center;
+            color: #999;
+            line-height: .3rem;
+        }
+        .pro_del{
+            width: .46rem;
+            height: .36rem;
+            text-align: center;
+            color: #999;
+            line-height: .3rem;
+        }
+        .pro_muchr span {
+            width: .52rem;
+            height: .36rem;
+            border-right: 1px solid #CCCCCC;
+            border-left: 1px solid #CCCCCC;
+            color: #333;
+            text-align: center;
+            font-weight: 400;
+        }
+        /* 付款部分 */
+        .bc_foot {
+            width: 100%;
+            height: .88rem;
+            background: #fff;
+            position: fixed;
+            bottom: 1.08rem;
+            border-top: 1px solid #EEEEEE;
+            border-bottom: 1px solid #EEEEEE;
+        }
+        .bc_footl {
+            width: 1.5rem;
+            height: .88rem;
+            padding-left: .3rem;
+            overflow: hidden;
+            line-height: .88rem;
+        }
+        .bc_whole {
+            width: .4rem;
+            height: .4rem;
+            border: 1px solid #333C3C;
+            border-radius: 50%;
+            margin-right: .12rem;
+            margin-top: .23rem;
+        }
+        .bc_whole i {
+            color: #9C53F6;
+            font-size: .42rem;
+            position: relative;
+            top: -.25rem;
+            left: -.03rem;
+            display: none
+        }
+        .bc_footl span {
+            font-size: .28rem;
+            color: #666;
+            float: left;
+        }
+        .bc_footc {
+            width: 2.3rem;
+            height: .88rem;
+            line-height: .88rem;
+        }
+        .bc_footc p {
+            font-size: .28rem;
+            color: #333;
+        }
+      .bc_footc span {
+            color: #F5B443;
+            font-size: .36rem;
+        }
+        .bc_footr {
+            width: 2.53rem;
+            height: .88rem;
+            background: #9C53F6;
+            font-size: .32rem;
+            color: #fff;
+            text-align: center;
+            line-height: .88rem;
+        }     
+        .main li .mainl .iconfont{
+            display: none;
+            top: .02rem;
+        }
+        .main li .active .iconfont{
+            display: block;
+        }
+        .bc_footl .active i{
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- 页面头部 -->
+        <div class="head flexc">
+            <i ></i>
+            <p>购物车</p>
+            <div class="headr">
+                <span id="next">管理商品</span>
+                <span id="fin" class="none">完成</span>
+            </div>
+        </div>
+        <!-- 页面内容 -->
+        <div class="main">
+            <ul>
+                <!-- <li>
+                    <div  class="mainl">
+                        <i class="iconfont iconduihao2 "></i>
+                    </div>
+                    <div class="mainr flexc">
+                        <img src="../image/photo4.png">
+                        <div class="mainrr fl">
+                            <div class="pro_name">五星级酒店专用经典床上用品四件套纯棉品质可定制</div>
+                            <p>粉色#401</p>
+                            <div class="pro_much flexc">
+                                <span>￥100</span>
+                                <div class="pro_muchr flexc">
+                                    <div  class="pro_del">-</div>
+                                    <span >1</span>
+                                    <div  class="pro_add">+</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li> -->
+            </ul>
+        </div>
+        <!-- 页面底部 -->
+        <div class="bc_foot flexc">
+            <div class="bc_footl">
+                <div class="bc_whole fl">
+                    <i class="iconfont iconduihao2 "></i>
+                </div>
+                <span>全选</span>
+            </div>
+            <div id="comb" class="bc_footc flex">
+                <p>合计：</p>
+                <span>￥0</span>
+            </div>
+            <div id="set" class="bc_footr">去结算(0)</div>
+            <div id="delw" class="bc_footr none">删除商品(0)</div>
+        </div>
+        <div class="footer">
+            <div class="footer_o ">
+                <i class="iconfont iconshouye "></i>
+                <p>首 页</p>
+            </div>
+            <div class="footer_o ">
+                <i class="iconfont iconfenlei1"></i>
+                <p>分 类</p>
+            </div>
+            <div class="footer_o active">
+                <i class="iconfont icongouwuche1"></i>
+                <p>购物车</p>
+            </div>
+            <div class="footer_o">
+                <i class="iconfont iconbiaoqing"></i>
+                <p>我的</p>
+            </div>
+        </div>
+    </div>
+    <script src="../../js/iconfont.js"></script>
+    <script src="../../js/jquery-3.3.1.min.js"></script>
+    <script src="../../js/hui.js"></script>
+    <script src="../../js/hui-refresh-load-more.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+    $(document).ready(function () {
+        var idlist=''
+        //数据渲染
+        getBuycar()
+        function getBuycar(){
+            reqAjax('/api/app/get_cart',{start:0},function(res){
+                if (res.code == 1) {
+                    var dt = res.data || [];
+                    var buycarhtml='';
+                    dt.map(function(v){
+                        buycarhtml += '<li data-id="'+v.id+'"><div class="mainl"><i class="iconfont iconduihao2 "></i></div>'
+                        +'<div class="mainr flexc"><img src="'+v.pic+'"><div class="mainrr fl">'
+                        +'<div class="pro_name">'+v.goods_name+'</div><p>'+v.goods_attr_value+'</p><div class="pro_much flexc">'
+                        +'<span>￥'+v.shop_price+'</span><div class="pro_muchr flexc"><div class="pro_del">-</div>'
+                        +'<span >'+v.goods_num+'</span><div class="pro_add">+</div></div></div></div></div></li>'
+                    })
+                    $('.main ul').append(buycarhtml);
+                }
+            })
+        }
+        //跳转管理界面
+        $('#next').click(function(){
+            $(this).hide();
+            $('#fin').show();
+            $('#set').hide();
+            $('.bc_footr:eq(1)').show();
+            $('#comb').hide();
+        })
+        //管理界面退出
+        $('#fin').click(function(){
+            $('#fin').hide();
+            $('#next').show();
+            $('#set').show();
+            $('.bc_footr:eq(1)').hide();
+            $('#comb').show();
+        })
+        //元素选中
+        $('body').on('click','.mainl',function(){
+            $(this).toggleClass('active');
+            prosome()
+            if ($('.mainl').hasClass('active')) {
+                $('.bc_whole').removeClass('active');
+            }
+        })
+        //全选
+        $('body').on('click','.bc_whole',function(){
+            $(this).toggleClass('active');
+            if ($(this).hasClass('active')){
+                $('.mainl').addClass('active');
+            }else{
+                $('.mainl').removeClass('active');
+            }
+            prosome()
+        })
+        //加减
+        $('body').on('click','.pro_add',function(){
+           var a =$(this).prev().html();
+           var b = $(this).parent().parent().parent().parent().parent().data('id')
+           a++;
+           $(this).prev().html(a);
+           prosome()
+           giveGoodsSum(b,a)
+        })
+        $('body').on('click','.pro_del',function(){
+           var a =$(this).next().html();
+           var b = $(this).parent().parent().parent().parent().parent().data('id')
+           if (a <= 1) {
+               return false
+           } else {
+               a--;
+           }
+           $(this).next().html(a);
+           prosome()
+           giveGoodsSum(b,a)
+        })
+        //修改商品数量
+        function giveGoodsSum(id,number){
+            reqAjax('/api/app/edit_cart_goods_num',{cart_id:id,goods_num:number},function(res){
+                if (res.code == 1) {
+                    hui.toast('成功')
+                }
+            })
+        }
+        //列表数量统计
+        function prosome(){
+            var jssum=0;
+            var scsum=0;
+            var hjsum=0;
+            $('li').each(function(){
+               if ($(this).find('.iconfont').is(':visible')) {
+                    var sum=Number($(this).find('.pro_muchr span').html());
+                    var price = $(this).find('.pro_much span').html();
+                    price = Number(price.substr(1));
+                    hjsum+=(sum * price)
+                    jssum+=sum;
+                    scsum++;
+                   
+               }
+            })
+            $('#set').html('去结算('+jssum+')')
+            $('#delw').html('删除商品('+scsum+')')
+            $('#comb span').html('￥'+hjsum)
+        }
+        //提交订单
+        $('#set').click(function(){
+            getCartId()
+            localStorage.setItem('addressData','');
+            if (idlist != '') {
+                reqAjax('/api/user/get_my_address',{start:0},function(res){//获取所有地址信息
+                    if (res.code == 1 && res.data.length > 0) {
+                        localStorage.setItem('addressData',JSON.stringify(res.data[0]));
+                        window.location.href='../good/proview_buy.html?style=1&cart_ids='+idlist;
+                    }
+                })
+            }
+            
+        })
+        function getCartId(){
+            $('li').each(function(){
+               if ($(this).find('.iconfont').is(':visible')) {
+                idlist+=$(this).data('id')+','
+               }
+            })
+        }
+        //删除事件
+        $('#delw').click(function(){
+            getCartId()
+            reqAjax('/api/app/del_cart_goods',{cart_ids:idlist},function(res){
+                if (res.code == 1) {
+                    idlist='';
+                    hui.toast('删除成功')
+                    $('li').each(function(){
+                        if ($(this).find('.iconfont').is(':visible')) {
+                           $(this).remove();
+                        }
+                    })
+                    prosome()
+                }
+            })
+        })
+    })
+    </script>
+</body>
+
+</html>

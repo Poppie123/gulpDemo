@@ -1,0 +1,174 @@
+
+.box{
+   width: 100%;
+}
+/* 头部部分开始 */
+body .header {
+    /* position: fixed;
+    top: 0; */
+    width: 100%;
+    height: .99rem;
+    z-index: 2;
+    background: #FFFFFF;
+}
+.header-content{
+    overflow: visible;
+    position: relative;
+}
+/* .header .iconfont{
+    position: absolute;
+} */
+.header .iconiconfontjiantou1{
+    margin-top: .3rem;
+    position: absolute;
+    margin-left: .28rem;
+    line-height: .59rem;
+}
+.header .search-box{
+    margin-top: .3rem;
+    position: absolute;
+    width: 6.5rem;
+    height: .59rem;
+    margin-left: .72rem;
+    background: #f5f5fd;
+    border-radius: .30rem;
+}
+.header .header-span{
+    position: absolute;
+    margin-left: 6.67rem;
+    line-height: .59rem;
+    font-size:.28rem;
+    font-weight:500;
+    color:rgba(51,51,51,1);
+}
+
+
+body .header .serch-content {
+    /* width: 5.5rem; */
+    height: .59rem;
+    position: relative;
+}
+
+body .header .search-box .iconsousuo {
+    position: absolute;
+    box-sizing: border-box;
+    font-size: .25rem;
+    padding: .18rem 0 0 .29rem;
+    color: #A5A5C1;
+}
+
+body .header .search-box .search-ipt {
+    position: absolute;
+    font-size: .28rem;
+    font-weight: 400;
+    margin-left: .65rem;
+    line-height: .59rem;
+}
+
+body .header .search-box .search-ipt .search-item {
+    font-size: .28rem;
+    background: #F5F5FD;
+    width: 5.5rem;
+}
+
+/* 导航部分开始 */
+.nav{
+    /* margin-top: 1.14rem; */
+    width: 100%;
+    height: 1.01rem;
+    background: #FFFFFF;
+}
+.nav-content{
+    display: flex;
+    justify-content: space-around;
+}
+.nav-item{
+    overflow: visible;
+    position: relative;
+    margin-top: .35rem;
+    font-size:.28rem;
+    font-weight:400;
+    color:rgba(153,153,153,1);
+}
+.nav-item .iconxiangshang{
+    font-size: .15rem;
+    position: absolute;
+    margin-top: -.40rem;
+    margin-left: .70rem;
+    color: #CCCCCC;
+}
+
+.nav-item .iconxiangxia{
+    font-size: .15rem;
+    position: absolute;
+    color: #CCCCCC;
+    margin-top: -.20rem;
+    margin-left: .66rem;
+}
+
+/* 商品部分开始 */
+.competitive {
+    width:100%;
+    height:auto;
+    margin: .29rem auto;
+    font-size: 0;
+  }
+  
+  .competitive-content {
+    width: 100%;
+    height: auto;
+  }
+  
+  .competitive-content .competitive-item {
+    width: 6.94rem;
+    height: 4.98rem;
+    margin: 0 auto .2rem;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .competitive-content .competitive-item img {
+    width: 3.37rem;
+    height: 3.37rem;
+  }
+  
+  .competitive-content .competitive-item .bed {
+    width: 3rem;
+    font-size: .26rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #333333;
+    text-indent: .11rem;
+    margin-top: .15rem;
+}
+
+.competitive-content .competitive-item .preferential-price-second {
+    padding: .12rem 0 0 .1rem;
+    position: absolute;
+    font-size: .28rem;
+    font-weight: bold;
+    color: #f5b443;
+}
+
+.competitive-content .competitive-item .original-cost-second {
+    padding-top: .12rem;
+    /* position: absolute; */
+    font-size: .20rem;
+    font-weight: 400;
+    text-decoration: line-through;
+    color: #cccccc;
+    margin-right: .9rem;
+    float: right;
+}
+
+.sale {
+    position: absolute;
+    font-size: .24rem;
+    font-weight: 400;
+    color: rgba(153, 153, 153, 1);
+    margin-left: .11rem;
+    margin-top: .55rem;
+}

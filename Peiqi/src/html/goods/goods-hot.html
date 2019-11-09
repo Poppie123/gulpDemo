@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 视图窗口，移动端特属的标签。 -->
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+    <!-- 是否启动webapp功能，会删除默认的苹果工具栏和菜单栏。 user-scalable=no"用户可扩展否 -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../css/cleardefault.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/iconfont.css">
+    <link rel="stylesheet" href="../../css/swiper.css">
+    <link rel="stylesheet" href="../../css/hui.css">
+    <title>今日促销</title>
+    <style>
+        body{
+            background:rgba(250,250,254,1);
+        }
+        .box {
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            position: fixed;
+            z-index: 2;
+            top: 0;
+        }
+
+        /* 头部部分开始 */
+        .header {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: .93rem;
+            font-size: 0;
+            background: #FFFFFF;
+        }
+
+        .iconiconfontjiantou1 {
+            margin-left: .28rem;
+            font-size: .3rem;
+            color: #999999;
+        }
+
+        .header-write {
+            margin-left: 2.6rem;
+            text-align: center;
+            font-size: .36rem;
+            font-weight: 400;
+            color: rgba(51, 51, 51, 1);
+        }
+
+        /* 导航部分开始 */
+        .nav {
+            /* margin-top: 1.14rem; */
+            width: 100%;
+            height: 1.01rem;
+            background: #FFFFFF;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .nav-item {
+            overflow: visible;
+            position: relative;
+            margin-top: .35rem;
+            font-size: .28rem;
+            font-weight: 400;
+            color: rgba(153, 153, 153, 1);
+        }
+
+        .nav-item .iconxiangshang {
+            font-size: .15rem;
+            position: absolute;
+            margin-top: -.40rem;
+            margin-left: .70rem;
+            color: #CCCCCC;
+        }
+
+        .nav-item .iconxiangxia {
+            font-size: .15rem;
+            position: absolute;
+            color: #CCCCCC;
+            margin-top: -.20rem;
+            margin-left: .66rem;
+        }
+
+        .nav-item span {
+            font-size: .28rem;
+            font-weight: 400;
+            color: rgba(153, 153, 153, 1);
+        }
+
+        .active span {
+            color: rgba(94, 67, 245, 1);
+        }
+
+        .nav-item:active span,
+        .nav-item:active i {
+            color: rgba(94, 67, 245, 1);
+        }
+
+        .app-font-color {
+            color: #9C53F6 !important;
+        }
+
+        /* 商品部分开始 */
+        .competitive {
+            width: 100%;
+            height: auto;
+            margin: 2.25rem auto;
+            font-size: 0;
+        }
+
+        .competitive-content {
+            width: 100%;
+            height: auto;
+        }
+
+        .competitive-content .competitive-item {
+            width: 6.94rem;
+            margin: 0 auto .2rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .competitive-content .competitive-item img {
+            width: 3.37rem;
+            height: 3.37rem;
+        }
+
+        .competitive-content .competitive-item .bed {
+            width: 3rem;
+            font-size: .26rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: #333333;
+            text-indent: .11rem;
+            margin-top: .15rem;
+        }
+
+        .competitive-content .competitive-item .preferential-price-second {
+            padding: .12rem 0 0 .1rem;
+            position: absolute;
+            font-size: .28rem;
+            font-weight: bold;
+            color: #f5b443;
+        }
+
+        .competitive-content .competitive-item .original-cost-second {
+            padding-top: .12rem;
+            /* position: absolute; */
+            font-size: .20rem;
+            font-weight: 400;
+            text-decoration: line-through;
+            color: #cccccc;
+            margin-right: .9rem;
+            float: right;
+        }
+
+        .sale {
+            position: absolute;
+            font-size: .24rem;
+            font-weight: 400;
+            color: rgba(153, 153, 153, 1);
+            margin-left: .11rem;
+            margin-top: .55rem;
+        }
+
+        .sale-much {
+            font-size: .24rem;
+            font-weight: 400;
+            color: rgba(153, 153, 153, 1);
+        }
+
+        .competitive-item .competitive-left {
+            width: 3.37rem;
+            height: 4.88rem;
+            background: #FFFFFF;
+            margin-bottom: .2rem;
+        }
+        #competitive-left-all li:nth-of-type(odd)
+        /* 奇数行   */
+            {
+            float: left;
+        }
+
+        #competitive-left-all li:nth-of-type(even)
+        /* 偶数行   */
+            {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 头部部分开始 -->
+    <div class="box">
+        <div class="header">
+            <div class="header-content">
+                <i class="iconfont iconiconfontjiantou1 link-to" data-href="../index.html"></i>
+                <span class="header-write">热卖商品</span>
+                <!-- <span class="header-write">今日促销</span>
+                <span class="header-write">特卖商品</span>
+                <span class="header-write">新品上市</span> -->
+            </div>
+        </div>
+
+        <!-- 导航部分开始 -->
+        <div class="nav">
+            <div class="nav-content">
+                <div class="nav-item active">
+                    <span>综合排序</span>
+                </div>
+                <div class="nav-item">
+                    <span>价格</span>
+                    <i class="iconfont iconxiangshang"></i>
+                    <i class="iconfont iconxiangxia"></i>
+                </div>
+                <div class="nav-item">
+                    <span>销量</span>
+                    <i class="iconfont iconxiangshang"></i>
+                    <i class="iconfont iconxiangxia"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 商品部分开始 -->
+    <div class="competitive">
+        <div class="competitive-content">
+            <div class="competitive-item">
+                <ul id="competitive-item-all hot-list">
+                    <li>
+                        <div class="competitive-left">
+                            <img src="../../image/towel.png">
+                            <p class="bed">五星级酒店专用床上用品...</p>
+                            <span class="preferential-price-second">¥655.00</span>
+                            <span class="original-cost-second">¥2000.00</span>
+                            <span class="sale">销量：<span class="sale-much">3665</span></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="../../js/jquery-3.3.1.min.js"></script>
+    <script src="../../js/swiper.js"></script>
+    <script src="../../js/hui.js"></script>
+    <script src="../../js/hui-refresh-load-more.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+        $(document).ready(function () {
+            //导航栏跳转
+            $('.nav .nav-item').click(function () {
+                $(this).addClass('active').siblings().removeClass('active').find('i').removeClass('app-font-color');
+                if ($(this).find('.nav-item')) {
+                    if ($(this).find('.iconxiangshang').hasClass('app-font-color')) {
+                        $(this).find('.iconxiangshang').removeClass('app-font-color')
+                        $(this).find('.iconxiangxia').addClass('app-font-color')
+                    } else {
+                        $(this).find('.iconxiangshang').addClass('app-font-color')
+                        $(this).find('.iconxiangxia').removeClass('app-font-color')
+                    }
+                }
+            })
+            // 获取热卖商品信息
+            // function getHotGds() {
+            //     hui.loading('加载中')
+            //     rebqAjax('/api/goods/search_hot', { price_order: 1, start: 0 }, function (res) {
+            //         if (res.code == 1) {
+            //             console.log(res)
+            //             var dt = res.data || [];
+            //             var html = "";
+            //             dt.map(function (v) {
+            //                 html += '<li><div class="competitive-left"><img class="hui-lazy" lazySrc="' + v.img + '" src="../image/lazy.jpeg"><p class="bed">'
+            //                     + v.goods_name + '</p><span class="preferential-price-second">¥' + v.shop_price
+            //                     + '</span><span class="original-cost-second">¥' + v.market_price
+            //                     + '</span><span class="sale"><span class="sale-much">'
+            //                     + v.market_price + '</sapn></sapn></div></li>'
+            //             });
+            //             $('.hot-list').html(html);
+            //         }
+            //     });
+            // }
+        })
+    </script>
+</body>
+
+</html>

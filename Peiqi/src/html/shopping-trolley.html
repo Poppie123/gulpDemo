@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>购物车</title>
+    <link rel="stylesheet" href="../css/cleardefault.css">
+    <link rel="stylesheet" href="../css/iconfont.css">
+    <link rel="stylesheet" href="../css/swiper.css">
+    <link rel="stylesheet" href="../css/shopping-trolley.css">
+    <style>
+        .none {
+            display: none;
+        }
+
+        .content .iconfont {
+            display: none;
+        }
+
+        .content .active .iconfont {
+            display: block;
+        }
+
+        .content .icon-box {
+            position: absolute;
+            width: .40rem;
+            height: .40rem;
+            border: 1px solid rgba(51, 60, 60, 1);
+            border-radius: 100%;
+            margin-left: .25rem;
+            margin-right: .23rem;
+            margin-top: 1.02rem;
+        }
+
+        .content .iconduihao2 {
+            position: relative;
+            font-size: .4rem;
+            color: #9C53F6;
+            opacity: 1;
+            top: -.03rem;
+            left: -.03rem;
+        }
+
+        .icon-box-b {
+            position: absolute;
+            width: .4rem;
+            height: .4rem;
+            border: 1px solid #333C3C;
+            border-radius: 50%;
+            margin-left: .22rem;
+            margin-top: .23rem;
+        }
+
+        .icon-box-b i {
+            color: #9C53F6;
+            font-size: .41rem;
+            position: relative;
+            top: -.25rem;
+            left: -.03rem;
+        }
+
+        .content-item:active .icon-box {
+            border: 1px solid #9C53F6;
+        }
+
+        /* .content-item:active .i{
+            color: #9C53F6;
+        } */
+    </style>
+</head>
+
+<body>
+    <!-- 头部开始 -->
+    <div class="header">
+        <div class="header-content">
+            <i class="iconfont iconiconfontjiantou1"></i>
+            <span class="write-first">购物车</span>
+            <div class="write-all">
+                <span class="write-second active" id="next">管理商品</span>
+                <span class="write-second none" id="fin">完成</span>
+            </div>
+        </div>
+    </div>
+    <!-- 头部结束 -->
+
+    <!-- 内容开始 -->
+    <div class="content">
+        <ul>
+            <li>
+                <div class="content-item">
+                    <div class="icon-box">
+                        <i class="iconfont iconduihao2"></i>
+                    </div>
+                    <img src="../image/black-bed.png" alt="">
+                    <span class="content-detail">五星级酒店专用经典床上用品四件套纯棉品质可定制</span>
+                    <span class="colour">粉色#401</span>
+                    <span class="money">￥100</span>
+                    <div class="quantity">
+                        <div class="subtract">-</div>
+                        <div class="much">1</div>
+                        <div class="add">+</div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="content-item">
+                    <div class="icon-box">
+                        <i class="iconfont iconduihao2"></i>
+                    </div>
+                    <img src="../image/black-bed.png" alt="">
+                    <span class="content-detail">五星级酒店专用经典床上用品四件套纯棉品质可定制</span>
+                    <span class="colour">粉色#401</span>
+                    <span class="money">￥100</span>
+                    <div class="quantity">
+                        <div class="subtract">-</div>
+                        <div class="much">1</div>
+                        <div class="add">+</div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- 内容结束 -->
+
+    <!-- 结算开始 -->
+    <div class="account">
+        <div class="account-content">
+            <div class="icon-box-b">
+                <i class="iconfont iconduihao2 none"></i>
+            </div>
+            <sapn class="check-all">全选</sapn>
+            <div class="" id="comb">
+                <sapn class="total">合计：</sapn>
+                <sapn class="money-all">￥0</sapn>
+            </div>
+            <sapn class="go-account" id="set">去结算(0)</sapn>
+            <sapn class="go-account none" id="delw">删除商品(0)</sapn>
+        </div>
+    </div>
+    <!-- 结算结束 -->
+    <!-- 底部开始 -->
+    <div class="footer">
+        <div class="footer-content">
+            <div class="null"></div>
+            <ul>
+                <li class="footer-item">
+                    <img id="sy" src="../image/shouye1.png">
+                    <p>首页</p>
+                </li>
+                <li class="footer-item">
+                    <img src="../image/fenlei.png">
+                    <p>分类</p>
+                </li>
+                <li class="footer-item active">
+                    <img src="../image/gouwuche1.png">
+                    <p>购物车</p>
+                </li>
+                <li class="footer-item">
+                    <img src="../image/wode.png">
+                    <p>我的</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 底部结束 -->
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script>
+        $(document).ready(function () {
+            //     getMyCar()
+            //     //获取购物车商品
+            //     function getMyCar() {
+            //     reqAjax('api/app/get_cart', { start: 0 }, function (res) {
+            //         if (res.code == 1) {
+            //             console.log(res)
+            //             var dt = res.data || [];
+            //             var html = "";
+            //             dt.map(function (v) {
+            //                 html += '<div class="content-item"><div class="icon-box">'
+            //                     + '<i class="iconfont iconduihao2 "></i>'
+            //                     + '</div><img id="img1" src="' + v.pic + '"/>'
+            //                     + '<span class="content-detail">'+ v.goods_name + '</span>'
+            //                     + '<span class="colour">'+ v.goods_attr_value + '</span>'
+            //                     + '<span class="money">￥'+ v.shop_price + '</span>'
+            //                     + '<div class="quantity"><div class="subtract">-</div>'
+            //                     + '<div class="much">' + v.goods_num +'</div><div class="add">+</div></div></div>'
+            //             });
+            //             $('.content').append(html);
+            //         }
+            //     });
+            // };
+            //切换状态
+            $('.write-all').click(function () {
+                if ($('#next').css('display') == 'none') {
+                    closeEdit()
+                } else {
+                    openEdit()
+                }
+            })
+
+            // 打开管理商品
+            function openEdit() {
+                $('#next').hide();
+                $('#fin').show();
+                $('#comb').hide()
+                $('#set').hide();
+                $('#delw').show()
+            }
+            function closeEdit() {
+                $('#next').show();
+                $('#fin').hide();
+                $('#comb').show()
+                $('#set').show();
+                $('#delw').hide()
+            }
+
+            // ++
+            $('.add').click(function () {
+                var num = $(this).prev().html();
+                num++;
+                $(this).prev().html(num);
+                sumNum()
+            })
+            //--
+            $('.subtract').click(function () {
+                var num = $(this).next().html();
+                if (num <= 1) {
+                    return false
+                }
+                num--;
+                $(this).next().html(num)
+                sumNum()
+            })
+            //单选
+            $('.icon-box').click(function () {
+                $(this).hasClass('active') ? $(this).removeClass('active') : $(this).addClass('active')
+                setTimeout(function () {
+                    isAllCheck()
+                }, 100)
+                sumNum()
+            })
+            //全选
+            $('.icon-box-b').click(function () {
+                if ($(this).find('.iconfont').hasClass('none')) {  //移除全选
+                    $(this).find('.iconfont').removeClass('none')
+                    $('.icon-box').addClass('active')
+                } else {
+                    $(this).find('.iconfont').addClass('none')
+                    $('.icon-box').removeClass('active')
+                }
+                sumNum()
+            })
+            //删除事件
+            $('#delw').click(function () {
+                $('.content-item').each(function () {
+                    if ($(this).find('.icon-box').hasClass('active')) {
+                        $(this).remove()
+                    }
+                })
+                sumNum()
+
+                closeEdit()
+                isAllCheck()
+            })
+            //计算总数
+            function sumNum() {
+                var totalNum = 0;
+                var totalGds = 0;
+                $('.content-item').each(function () {
+                    if ($(this).find('.icon-box').hasClass('active')) {
+                        var num = Number($(this).find('.much').html());
+                        totalNum += num;
+                        totalGds++;
+                    }
+                })
+                $('#set').html('去结算(' + totalNum + ')')
+                $('#delw').html('删除商品(' + totalGds + ')')
+                sumPrice()
+            }
+            //计算价格
+            function sumPrice() {
+                var totalPrice = 0;
+                $('.content-item').each(function () {
+                    if ($(this).find('.icon-box').hasClass('active')) {
+                        var num = Number($(this).find('.much').html());
+                        var price = $(this).find('.money').html();
+                        price = Number(price.substr(1));
+                        totalPrice += (num * price);
+                    }
+                })
+                $('.money-all').html('￥' + totalPrice)
+            }
+            // 判断是否全选
+            function isAllCheck() {
+                console.log($('.icon-box').length)
+                console.log($('.content-item > .active').length)
+                if ($('.icon-box').length == $('.content-item > .active').length && $('.icon-box').length != 0) {
+                    $('.icon-box-b .iconfont').removeClass('none');
+                } else {
+                    $('.icon-box-b .iconfont').addClass('none');
+                }
+            }
+        })
+
+        //底部跳转
+        $(document).on('click', '.footer-item', function () {
+            var cindex = $('.footer .active').index()
+            var index = $(this).index();
+            console.log(index)
+            if (index == 0) {
+                window.location.href = "./index.html"
+            } else if (index == 1) {
+                window.location.href = "./classify.html"
+            } else if (index == 2) {
+                isLogin() ? window.location.href = "./shopping-trolley.html" : window.location.href = "./login.html"
+            } else if (index == 3) {
+                isLogin() ? window.location.href = "./user.html" : window.location.href = "./login.html"
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>

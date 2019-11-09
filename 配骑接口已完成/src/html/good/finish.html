@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/iconfont.css">
+    <link rel="stylesheet" href="../../css/hui.css">
+    <title>支付成功</title>
+    <style>
+     html,body{
+        background: #fff;
+    }
+    .container{
+        padding-bottom: .49rem;
+        padding-top: .88rem;
+    }
+    .container .head p{
+        margin-left: -.36rem;
+        font-size: .36rem;
+    }
+    /* 页面内容 */
+    .main{
+        width: 1.6rem;
+        height: 2.7rem;
+        margin: .88rem auto 1.57rem;
+        text-align: center;
+    }
+    .main i{
+        font-size: 1.5rem;
+        color: #9C53F6;
+    }
+    .main p{
+        font-size: .36rem;
+        color: #333;
+        font-weight: bold;
+        margin: .1rem auto .15rem;
+    }
+    .main span{
+        font-size: .28rem;
+        color: #333C3C;
+    }
+    .main_bot{
+        width: 6.94rem;
+        height: .88rem;
+        background: #9C53F6;
+        text-align: center;
+        line-height: .88rem;
+        color: #fff;
+        font-size: .32rem;
+        border-radius: .44rem;
+        box-shadow:0px 6px 8px 0px rgba(222,196,255,1);
+        margin: 0 auto;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 页面头部 -->
+        <div style="border-bottom: 1px solid #F5F5F9" class="head flexc">
+            <i id="hrefh" class="iconfont iconiconfontjiantou1"></i>
+            <p>支付</p>
+            <span></span>
+        </div>
+        <!-- 页面内容 -->
+        <div class="main">
+            <i class="iconfont iconduihao2"></i><br>
+            <p>支付成功!</p>
+            <span></span>
+        </div>
+        <div class="main_bot">查看订单详情</div>
+    </div>
+    
+    <script src="../../js/iconfont.js"></script>
+    <script src="../../js/jquery-3.3.1.min.js"></script>
+    <script src="../../js/hui.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+        $(document).ready(function(){
+            var id = getQueryString('id');
+            var order_no = getQueryString('order_no');
+            var total_fee = getQueryString('total_fee');
+            $('.main span').html('￥'+total_fee);
+            //返回
+            $('#hrefh').click(function(){
+                window.location.href='./proview.html?id='+id;
+            })
+            //查看订单详情
+            $('.main_bot').click(function(){
+                hui.toast('支付系统未加载，请等待系统完善')
+                setTimeout(function () {
+                    window.location.href='./proview.html?id='+id;
+                },300)
+            })
+        })
+    </script>
+</body>
+</html>

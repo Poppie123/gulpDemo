@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>评价</title>
+    <link rel="stylesheet" href="../../css/cleardefault.css">
+    <link rel="stylesheet" href="../../css/iconfont.css">
+    <link rel="stylesheet" href="../../css/swiper.css">
+    <link rel="stylesheet" href="../../css/shopping-assess.css">
+</head>
+<body>
+     <!-- 头部开始 -->
+     <div class="header">
+        <div class="header-content">
+            <i class="iconfont iconiconfontjiantou1"></i>
+            <span class="header-write">评价</span>
+        </div>
+    </div>
+    <!-- 头部结束 -->
+
+    <!-- 评价开始 -->
+    <div class="evaluate-many">
+        <div class="product">
+            <img src="../../image/bed.png">
+            <span class="ft warter">倩碧（CLINIQUE）卓越润肤乳125m...</span>
+            <span class="ft ml">规格：200ML</span>
+            <span class="ft ft-right">x1</span>
+            <span class="ft ft-money">￥268.00</span>
+        </div>
+        <div class="line line-all"></div>
+        <div class="evaluate-many-center">
+            <div class="evaluate-tubiao">
+                <span class="evaluate-fenshu-all">综合评分</span>
+                <i class="iconfont iconpingfen yanse"></i>
+                <i class="iconfont iconpingfen yanse"></i>
+                <i class="iconfont iconpingfen yanse"></i>
+                <i class="iconfont iconpingfen yanse"></i>
+                <i class="iconfont iconpingfen yanseh"></i>
+                <span class="fenshu evaluate-fenshu">4.6分</span>
+            </div>
+        </div>
+        <div class="message-content">
+            <textarea class="message" id="" name="" placeholder="请输入您的评论吧~"></textarea>
+        </div>
+        <div class="go-picter">
+            <div class="go-picter-content">
+                <div class="go-top">上传图片<span class="go-third">（最多3张）</span></div>
+                <div class="go-many-picter">
+                    <img class="many-picter-item" src="../../image/black.png" alt="">
+                    <img class="many-picter-item" src="../../image/black.png" alt="">
+                    <div class="balck-submit">
+                        <div class="black-add">+</div>
+                        <div class="black-main">点击上传图片</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+    <div class="evaluate-submit">
+        <div class="evaluate-submit-item">提交</div>
+    </div>  
+    
+   
+    <script src="../../js/jquery-3.3.1.min.js"></script>
+    <script src="../../js/swiper.js"></script>
+    <script src="../../js/common.js"></script>
+    
+    <script>
+        $(document).ready(function () {
+            //进入商品评价
+            $('.evaluate').click(function () {
+                window.location.href = "./shopping-assess.html";
+            })
+            //返回...
+            $('.iconiconfontjiantou1').click(function () {
+                window.location.href = "./shopping-detail.html";
+            })
+        })
+    </script>
+</body>
+</html>

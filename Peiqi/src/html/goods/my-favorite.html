@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../css/cleardefault.css">
+    <link rel="stylesheet" href="../../css/iconfont.css">
+    <link rel="stylesheet" href="../../css/swiper.css">
+    <link rel="stylesheet" href="../../css/my-favorite.css">
+    <link rel="stylesheet" href="../../css/hui.css">
+    <title>我的收藏</title>
+
+    <style>
+        body {
+            background: rgba(250, 250, 254, 1);
+        }
+
+        .none {
+            display: none;
+        }
+
+        /* .content .iconfont {
+            display: none;
+        } */
+
+        .content .active .iconfont {
+            display: block;
+        }
+
+        .content .icon-box {
+            position: absolute;
+            font-size: .4rem;
+            width: .40rem;
+            height: .4rem;
+            border: 1px solid rgba(51, 60, 60, 1);
+            border-radius: 50%;
+            margin-left: .25rem;
+            margin-right: .23rem;
+            margin-top: 1.02rem;
+        }
+
+        .icon-box:active {
+            border: 1px solid #9C53F6;
+        }
+
+        .content .iconduihao2 {
+            position: relative;
+            font-size: .4rem;
+            color: #9C53F6;
+            opacity: 1;
+            top: -.95rem;
+            left: -.21rem;
+        }
+
+        .icon-box-b {
+            position: relative;
+            width: .4rem;
+            height: .4rem;
+            border: 1px solid #333C3C;
+            border-radius: 50%;
+            margin-left: .22rem;
+            margin-top: .23rem;
+        }
+
+        .content-item .money-five {
+            font-size: .28rem;
+            font-weight: bold;
+            color: rgba(245, 180, 67, 1);
+            padding-top: 1.71rem;
+        }
+
+        /* 内容开始 */
+        .content {
+            width: 100%;
+            height: auto;
+            margin-top: 1.08rem;
+            overflow-y: scroll;
+        }
+
+        .content-item {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 2.24rem;
+            margin-bottom: .20rem;
+            overflow: hidden;
+        }
+
+        .circle-border {
+            width: .4rem;
+            height: .4rem;
+            border-radius: 50%;
+            border: 1px solid #333C3C;
+            color: #333333;
+            margin-left: .28rem;
+            margin-right: .30rem;
+        }
+
+        .content-item #img1 {
+            width: 1.63rem;
+            height: 1.63rem;
+            margin: .30rem .21rem 0 .30rem;
+        }
+
+        .content-three {
+            position: relative;
+            display: flex;
+            width: 6.93rem;
+            height: 2.24rem;
+            background-color: #fff;
+            margin: 0 auto;
+        }
+
+        .flex-write {
+            position: flex;
+            flex-wrap: wrap;
+            margin-right: .31rem;
+            margin-top: .3rem;
+        }
+
+        .content-item .content-detail {
+            height: .65rem;
+            font-size: .24rem;
+            font-weight: 400;
+            color: rgba(51, 51, 51, 1);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            /* margin: .30rem .72rem .2rem 2.14rem; */
+        }
+
+        .content-item .colour {
+            font-size: .28rem;
+            font-weight: 400;
+            color: rgba(153, 153, 153, 1);
+            margin-top: .07rem;
+        }
+
+        .content-item .money {
+            font-size: .28rem;
+            font-weight: bold;
+            color: rgba(245, 180, 67, 1);
+            margin-top: .15rem;
+        }
+
+        .circle-border .iconfont {
+            display: none;
+            width: .4rem;
+            height: .4rem;
+            font-size: .4rem;
+            color: #9C53F6;
+            position: relative;
+            left: -0.03rem;
+            top: -0.04rem;
+        }
+
+        /* 内容结束 */
+        .content-item .active {
+            border: 1px solid #9C53F6;
+            left: -0.05rem;
+            top: -0.06rem;
+        }
+
+        .content-item .active .iconfont {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 头部开始 -->
+    <div class="header">
+        <div class="header-content">
+            <i class="iconfont iconiconfontjiantou1 link-to" data-href="../user.html"></i>
+            <span class="write-first">我的收藏</span>
+            <div class="write-all">
+                <span class="write-second active" id="next">编辑</span>
+                <span class="write-second none" id="fin">全选</span>
+            </div>
+        </div>
+    </div>
+    <!-- 头部结束 -->
+
+    <!-- 内容开始 -->
+    <div class="content">
+        <!-- <div class="content-item">
+            <div class="circle-border none">
+                <i class="iconfont iconduihao2"></i>
+            </div>
+            <div class="content-three">
+                <img id="img1" src="../Peiqi/src/image/black-bed.png" alt="">
+                <div class="flex-write">
+                    <div class="content-detail">五星级酒店专用经典床上用品四件套纯棉品质可定制</div>
+                    <div class="colour">粉色#401</div>
+                    <div class="money">￥132</div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    <!-- 内容结束 -->
+
+    <!-- 底部开始 -->
+    <div class="footer">
+        <div class="footer-item footer-fin" id="success">完成</div>
+        <div class="footer-item right " id="delw" del-btn>删除</div>
+    </div>
+
+
+    <script src="../../js/jquery-3.3.1.min.js"></script>
+    <script src="../../js/hui.js"></script>
+    <script src="../../js/hui-refresh-load-more.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+        $(document).ready(function () {
+            hui.loading('加载中')
+            getCollectGds();
+            openEdit()
+            closeEdit()
+        })
+        function getCollectGds() {
+            reqAjax('/api/goods/get_user_collect_goods', { start: 0 }, function (res) {
+                if (res.code == 1) {
+                    console.log(res)
+                    var dt = res.data || [];
+                    var html = "";
+                    dt.map(function (v) {
+                        html += '<div class="content-item" data-id="' + v.collect_id + '"><div class="circle-border none border-color">'
+                            + '<i class="iconfont iconduihao2"></i>'
+                            + '</div><div class="content-three"><img id="img1" src="'
+                            + v.img + '"/>' + '<div class="flex-write"><div class="content-detail">'
+                            + v.goods_name + '</div> <div class="colour">'
+                            + v.content + '</div><div class="money">￥'
+                            + v.shop_price + '</div></div></div></div>'
+                    });
+                    $('.content').append(html);
+                }
+            });
+        };
+
+        //选择状态
+        $('#next').click(function () {
+            if ($('#next').css('display') == 'none') {
+                closeEdit()
+            } else {
+                openEdit()
+            }
+        })
+
+
+        function openEdit() {
+            $('#next').hide();
+            $('.footer').show();
+            $('#fin').show()
+            $('.circle-border').show()
+
+        }
+        function closeEdit() {
+            $('#next').show();
+            $('.footer').hide();
+            $('#fin').hide()
+            $('.circle-border').hide()
+        }
+
+        // 完成打开编辑点击完成
+        $('#success').click(function () {
+            closeEdit()
+        })
+
+        // 单选
+        $('.content').on('click', '.circle-border', function () {
+            $(this).hasClass('active') ? $(this).removeClass('active') : $(this).addClass('active')
+        })
+
+        //全选 
+        $('#fin').click(function () {
+            $('.circle-border').addClass('active')
+        })
+
+        //删除事件
+        $('#delw').click(function () {
+            var str = [];
+            $('.content-item').each(function () {
+                if ($(this).find('.circle-border').hasClass('active')) {
+                    str.push($(this).data('id'))
+                }
+            });
+            str = str.join(',')
+            console.log(str)
+            reqAjax('/api/goods/del_more_user_collect', { collect_ids: str }, function (res) {
+                if (res.code == 1) {
+                    console.log(res)
+                    $('.content').html('');
+                    getCollectGds()
+                    closeEdit()
+                }
+            })
+        });
+
+    </script>
+</body>
+
+</html>

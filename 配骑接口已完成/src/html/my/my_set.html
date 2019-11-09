@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/iconfont.css">
+    <link rel="stylesheet" href="../../css/hui.css">
+    <title>我的设置</title>
+    <style>
+    .container{
+        padding-bottom: 1.2rem;
+        background: #FAFAFE;
+    }
+    .container .head p{
+        margin-left: -.36rem;
+        font-size: .36rem;
+    }
+    /* 页面内容 */
+    .main_top{
+        width: 100%;
+        height: 1.58rem;
+        background: #fff;
+        line-height: 1.58rem;
+        padding: 0 .28rem;
+        margin-top: 1.08rem;
+        font-size: .32rem;
+    }
+    .main_top span{
+        color: #333;
+    }
+    .main_top img{
+        width: .93rem;
+        height: .93rem;
+        border-radius: 50%;
+        margin-top:.35rem; 
+    }
+    .main_cen{
+        width: 100%;
+        height: 1.1rem;
+        border-top: 1px solid #EEEEEE;
+        border-bottom: 1px solid #EEEEEE;
+        background: #fff;
+        padding:0 .28rem;
+        line-height: 1.1rem;
+        font-size: .32rem;
+    }
+    .main_cen span{
+        color: #333;
+    }
+    .main_cen input{
+        width: 4rem;
+        height: 1rem;
+        line-height: 1rem;
+        text-align: right;
+        font-size: .32rem;
+        color: #333;
+    }
+    .main_bot{
+        width: 100%;
+        height: 1.11rem;
+        background: #fff;
+        padding: 0 .28rem;
+        line-height: 1.11rem;
+        font-size: .32rem;
+        margin-bottom: .2rem;
+    }
+    .main_bot span{
+        color: #333;
+    }
+    .main_botr{
+        width: 2.25rem;
+        height: 1.11rem;
+    }
+    .main_sex{
+        width: 1rem;
+        height: 1.11rem;
+    }
+    .main_sexl{
+        width: .32rem;
+        height: .32rem;
+        border:1px solid rgba(51,60,60,1);
+        border-radius:50%;
+        margin-top: .39rem;
+    }
+    .main_sexl i{
+        font-size: .35rem;
+        position: relative;
+        top: -.4rem;
+        left: -.03rem;
+        color: #9C53F6;
+    }
+    .main_sex span{
+        color: #666;
+        margin-left: .18rem;
+    }
+    .phone{
+        width: 100%;
+        height: 1.09rem;
+        background: #fff;
+        line-height: 1.09rem;
+        font-size: .32rem;
+        padding: 0 .28rem;
+        margin-bottom: 4.98rem;
+    }
+    .phone span{
+        color: #333;
+    }
+    .phoner{
+        width: 2.3rem;
+        height: 1.09rem;
+    }
+    .phoner span{
+        color: #999;
+    }
+    .phoner i{
+        font-size: .3rem;
+        color: #ddd;
+    }
+    /* 退出登录部分 */
+    .exit{
+        width: 6.94rem;
+        height: .88rem;
+        border:1px solid rgba(51,60,60,1);
+        border-radius:.44rem;
+        margin: 0 auto;
+        line-height: .88rem;
+        color: #333;
+        font-size: .36rem;
+        text-align: center;
+    }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- 页面头部 -->
+    <div class="head flexc">
+        <i class="iconfont iconiconfontjiantou1 link-to" data-href="../user/my.html"></i>
+        <p>设置</p>
+        <span></span>
+    </div>
+    <!-- 页面内容   -->
+    <div class="main_top flexc">
+        <span>头像</span>
+        <img src="../../image/header.png">
+    </div>
+    <div class="main_cen flexc">
+        <span>昵称</span>
+        <input type="text" value="">
+    </div>
+    <div class="main_bot flexc">
+        <span>性别</span>
+        <div class="main_botr flexc">
+            <div class="main_sex flex">
+                <div id="woman" class="main_sexl">
+                    <i class="iconfont iconduihao2 "></i>
+                </div>   
+                <span>女</span>
+            </div>
+            <div class="main_sex flex">
+                <div id="man" class="main_sexl">
+                    <i class="iconfont iconduihao2 none"></i>
+                </div>   
+                <span>男</span>
+            </div>
+        </div>
+    </div>
+    <div class="phone flexc link-to" data-href="./my_set_ph.html">
+        <span>手机</span>
+        <div class="phoner">
+            <span>156****8888</span>
+            <i class="iconfont icongengduo"></i>
+        </div>
+    </div>
+    <!-- 退出登录部分 -->
+    <div class="exit">退出登录</div>
+</div>
+    
+    <script src="../../js/iconfont.js"></script>
+    <script src="../../js/jquery-3.3.1.min.js"></script>
+    <script src="../../js/hui.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+        $(document).ready(function(){
+            //获取用户信息
+            reqAjax('/api/user/get_user_info', {}, function (res) {
+                if (res.code == 1) {
+                    var dt = res.data || [];
+                    $('.main_top  img').attr('src',dt.headimg);
+                    $('.main_cen input').attr('value',dt.username);
+                    if (dt.sex == '男') {
+                        $('#man i').removeClass('none');
+                        $('#woman i').addClass('none')
+                    } else {
+                        $('#man i').addClass('none');
+                        $('#woman i').removeClass('none')
+                    }
+                    $('.phoner span').html(dt.phone)
+                }
+            })
+            //监听昵称变化
+            $('.main_cen input').on('blur',function (){
+                var namenow = $(this).val()
+                console.log(namenow)
+                reqAjax('/api/user/set_nickname', {nickname:namenow}, function (res) {
+                })
+            })
+
+            // 男女选项切换
+            $('#woman').click(function(){
+                $('#woman > i').removeClass('none');
+                $('#man > i').addClass('none');
+                reqAjax('/api/user/set_sex', {sex:2}, function (res) {
+                })
+            })
+            $('#man').click(function(){
+                $('#man > i').removeClass('none');
+                $('#woman > i').addClass('none');
+                reqAjax('/api/user/set_sex', {sex:1}, function (res) {
+                })
+            })
+            //退出登录
+            $('.exit').click(function(){
+                localStorage.removeItem('uid')
+                reqAjax(' /api/user/loginout', {}, function (res) {
+                })
+                window.location.href='../user/login.html'
+            })
+           
+        })
+    </script>
+</body>
+</html>

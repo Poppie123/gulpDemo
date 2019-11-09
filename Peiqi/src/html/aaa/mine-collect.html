@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 视图窗口，移动端特属的标签。 -->
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+    <!-- 是否启动webapp功能，会删除默认的苹果工具栏和菜单栏。 user-scalable=no"用户可扩展否 -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>我的-收藏</title>
+    <link rel="stylesheet" href="../../css/cleardefault.css">
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../css/swiper.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/iconfont.css">
+    <link rel="stylesheet" href="../../css/hui.css">
+</head>
+<body class="body-bac">
+    <div class="top cart-top">
+        <i class="iconfont iconiconfontjiantou1"></i>
+        <div class="font40-3">我的收藏</div>
+        <div class="cart-top-r">
+            <span class="font28-3" id="manager">编辑</span>
+            <span class="font28-3 none" id="select-all">全选</span>
+        </div> 
+    </div>
+    <div class="top88"></div>
+    <ul class="cart ">
+         <!-- <li class="flex-st">
+            <div class="collect-icon none">
+                <i class="iconfont iconbig-circle"></i>
+                <i class="iconfont iconduihao2 none i-active"></i>
+            </div>
+            <div class="cart-list collect-list">  
+                <img src="../../images/bed-cart.png" alt="">
+                <div class="pro-detail">
+                    <div class="lh ellipisis2">五星级酒店专用经典床上用品四件套纯棉品质可定制五星级酒店专用经典床上用品四件套纯棉品质可定制</div>
+                    <p class="font28-9 mt2">粉色#401</p>
+                    <div class="p-list">
+                        <div class="pro-price">￥1560</div>     
+                    </div>  
+                </div>
+            </div>
+        </li> -->
+    </ul>   
+    <div class="bottom108"></div>
+    <div class="collect-bottom none">
+        <div class="finish-btn">完成</div>
+        <div class="del-btn">删除</div>
+    </div>
+    <script src="../../js/jquery-3.3.1.min.js"></script>
+    <script src="../../js/hui.js"></script>
+    <script src="../../js/common.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            getCollectGds();
+           
+        });
+        function getCollectGds(){
+            reqAjax('/api/goods/get_user_collect_goods', {start:0}, function (res) {
+                if (res.code == 1) {
+                    var dt = res.data || [];
+                    var html = "";
+                    dt.map(function (v) {
+                        html += '<li class="flex-st" data-id="'+v.collect_id+'"><div class="collect-icon none">'
+                            + '<i class="iconfont iconbig-circle"></i>'
+                            +'</div><div class="cart-list collect-list"><img src="' 
+                            + v.img + '"/>'+'<div class="pro-detail"><div class="lh ellipisis2">'
+                            + v.goods_name+'</div> <p class="font28-9 mt2">'
+                            + v.content+'</p><div class="p-list"><div class="pro-price">￥'
+                            + v.shop_price+'</div></div></div></div></li>'
+                    });
+                    $('.cart').append(html);
+                }
+            });
+        };
+        /* 返回 */
+        $('.iconiconfontjiantou1').click(function(){
+            window.location.href='./mine.html';
+        });
+        /* 编辑or完成 */
+        $('#manager').click(function(){
+            $('#manager').addClass('none');
+            $('#select-all').removeClass('none');
+            $('.collect-bottom').removeClass('none');
+            $('.collect-icon').removeClass('none');
+            $('.collect-list').addClass('col-active');
+            $('.collect-icon').find('i').addClass('iconbig-circle');
+            $('.collect-icon').find('i').removeClass('iconduihao2 i-active');
+        });
+        $('.finish-btn').click(function(){
+            $('#select-all').addClass('none');
+            $('#manager').removeClass('none');
+            $('.collect-bottom').addClass('none');
+            $('.collect-icon').addClass('none');
+            $('.collect-list').removeClass('col-active');
+        });
+        /* 全选 */
+        $('#select-all').click(function(){
+            $('.collect-icon').find('i').removeClass('iconbig-circle');
+            $('.collect-icon').find('i').addClass('iconduihao2 i-active');
+        });
+        /* 勾选 */
+        $(document).on('click', '.collect-icon', function () {
+            if ($(this).find('i').hasClass('iconbig-circle')) {
+                $(this).find('i').removeClass('iconbig-circle');
+                $(this).find('i').addClass('iconduihao2 i-active');
+            }
+            else {
+                $(this).find('i').addClass('iconbig-circle');
+                $(this).find('i').removeClass('iconduihao2 i-active');
+            }
+        });
+        /* $('.iconbig-circle').click(function(){
+            $(this).addClass('none');
+            $(this).siblings().removeClass('none');
+        });
+        $('.iconduihao2').click(function(){
+            $(this).addClass('none');
+            $(this).siblings().removeClass('none');
+        }); */
+        //删除事件
+        $('.del-btn').click(function () {
+            var str = [];
+            $('.cart li').each(function () {             
+                if ($(this).find('.iconfont').hasClass('iconduihao2')) {
+                    str.push($(this).data('id'))
+                }
+            });
+            
+            str = str.join(',')
+            console.log(str)
+            reqAjax('/api/goods/del_more_user_collect',{collect_ids:str},function(res){
+                  if (res.code == 1) {
+                    $('.cart').html('');
+                         getCollectGds()
+                        $('#select-all').addClass('none');
+                        $('#manager').removeClass('none');
+                        $('.collect-bottom').addClass('none');
+                        $('.collect-icon').addClass('none');
+                        $('.collect-list').removeClass('col-active');
+
+                  }
+            })
+        });
+    </script>
+</body>
+</html>

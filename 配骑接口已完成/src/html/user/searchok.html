@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../css/iconfont.css">
+    <link rel="stylesheet" href="../../css/hui.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <title>搜索成功页面</title>
+    <style>
+    .search{
+        width: 100%;
+        height: 1.7rem;
+        background: #fff;
+        position: fixed;
+        top: 0;
+        z-index: 2;
+    }
+    .sea_top{
+        width: 100%;
+        height: .87rem;
+        padding: .14rem .28rem;
+    }
+    .search i{
+        color: #A5A5C1;
+        font-size: .3rem;
+        margin-right: .3rem;
+        line-height: .59rem;
+    }
+    .sear_cen{
+        width: 100%;
+        height: .59rem;
+        background: #F5F5FD;
+        border-radius: .3rem;
+        padding: 0 .28rem;
+    }
+    .sear_cen i{
+        font-size: .28rem;
+        margin-right: .11rem;
+        line-height: .6rem;
+    }
+    .search input{
+        width: 100%;
+        height: 100%;
+        background: #F5F5FD;
+        font-size: .28rem;
+        line-height: .59rem;
+    }
+    .search input::-webkit-input-placeholder{
+        font-size: .28rem;
+        color: #A5A5C1;
+    }
+    .sea_bot{
+        width: 100%;
+        height: .83rem;
+        display: flex;
+        justify-content: space-around;
+        color: #999;
+    }
+    .sea_boto{
+        width: 1.2rem;
+        height: .83rem;
+        display: flex;
+    }
+    .sea_boto span{
+        font-size: .28rem;
+        line-height: .83rem;
+    }
+    .sea_r{
+        width: .4rem;
+        height: .83rem;
+        margin-left: .1rem;
+        padding-top: .05rem;
+        position: relative;
+    }
+    .sea_r i{
+        font-size: .2rem;
+        margin: 0;
+        line-height: 0;
+        position: absolute;
+        top: .3rem;
+    }
+    .search .sea_bot .xia{
+        position: absolute;
+        top: .53rem;
+        left:-.03rem;
+    }
+    .active{
+        color: #5E43F5 !important;
+    }
+    /* 搜索列表 */
+    .main{
+        width: 100%;
+        height: auto;
+        padding:1.9rem .28rem .75rem .28rem;
+    }
+    .main ul{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .main li{
+        width: 3.37rem;;
+        height: 4.88rem;
+        margin-bottom: .2rem;
+        background: #fff;
+    }
+    li img{
+        width: 100%;
+        height: 3.37rem;
+    }
+    .main_bot{
+        width: 100%;
+        height: 1.51rem;
+        padding: .15rem .49rem .2rem .11rem;;
+    }
+    .main_bot p{
+        font-size: .26rem;
+        color: #333;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .main_much{
+        width: 100%;
+        height: .45rem;
+    }
+    .main_bot .main_much span{
+        font-size: .32rem;
+        color: #F5B443;
+        font-weight: bold;
+        margin-right: .19rem;
+        line-height: .6rem;
+    }
+    .main_much del{
+        font-size: .2rem;
+        color: #999;
+        line-height: .63rem;
+    }
+    .main_bot span{
+        font-size: .24rem;
+        color: #999;
+        line-height: 0;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- 搜索框 -->
+        <div class="search ">
+            <div class="sea_top flexc">
+                <i  class="iconfont iconiconfontjiantou1 link-to" data-href="./search.html"></i>
+                <div class="sear_cen flexc">
+                    <i class="iconfont iconsousuo"></i>
+                    <input id="sea" type="text" placeholder="请输入商品名称">
+                </div> 
+            </div>
+            <div class="sea_bot">
+               <div class="sea_boto active">
+                   <span>综合排序</span>
+               </div>
+               <div class="sea_boto ">
+                    <span>价格</span>
+                    <div class="sea_r">
+                        <i class="iconfont iconxiangshang "></i>
+                        <i class="iconfont iconxiangxia xia"></i>
+                    </div>
+                </div>
+                <div class="sea_boto">
+                    <span>销量</span>
+                    <div class="sea_r">
+                        <i class="iconfont iconxiangshang "></i>
+                        <i class="iconfont iconxiangxia xia"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 搜索列表 -->
+        <div id="refreshContainer" class="hui-refresh">
+            <div class="hui-refresh-icon"></div>
+            <div class="main ">
+                <ul>
+                    <!-- <li>
+                        <img src="../image/photo1.png">
+                        <div class="main_bot">
+                            <p>五星级酒店专用床上用品精品</p>
+                            <div class="main_much">
+                                <span class="money">¥655.00</span>
+                                <del>¥2000.00</del>
+                            </div>
+                            <span class="num">销量：1365</span>
+                        </div>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../../js/iconfont.js"></script>
+    <script src="../../js/jquery-3.3.1.min.js"></script>
+    <script src="../../js/hui.js"></script>
+    <script src="../../js/hui-refresh-load-more.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+      $(document).ready(function(){
+        var isload=1;
+        var inputval = getQueryString('seaVal');
+        $('#sea').val(inputval);
+        init()
+        function init(){   
+            getGoods(2)
+            //下拉刷新
+            // hui.refresh('#refreshContainer',getGoods);
+            //上拉加载
+            hui.loadMore( getGoods);
+        }
+        //导航切换监听
+        $('body').on('click','.sea_boto',function(){
+            $(this).addClass('active').siblings().removeClass('active').find('i').removeClass('active');
+            if($(this).find('.sea_r')){
+                if ($(this).find('.iconxiangshang').hasClass('active')) {
+                    $(this).find('.iconxiangshang').removeClass('active')
+                    $(this).find('.iconxiangxia').addClass('active')
+                }else{
+                    $(this).find('.iconxiangshang').addClass('active')
+                    $(this).find('.iconxiangxia').removeClass('active')
+                }
+            }
+        })
+        //搜索框监听
+        $("#sea").keypress(function (e) {
+            // 兼容写法
+            e = e || window.event;
+            key = e.keyCode || e.which || e.charCode;
+            if (key == 13 || key == 108) {
+               console.log($(this).val())
+               isload=1;
+               $('.main ul').html('');
+               getGoods(2)
+            }
+        });
+        //切换排序方式
+
+        //获取数据
+        function getGoods(number){
+            var val = $('#sea').val()
+            if (isload != 1) {
+                    return false
+                }
+            var start = $('li').length
+            reqAjax('/api/goods/search_goods', {keyword:val,start:start,order:number}, function (res) {
+                if (res.code == 1) {
+                    var dt = res.data || [];
+                    var html = "";
+                    dt.map(function (v,i) {
+                        if (i<=6) {
+                            html += '<li class="link-to" data-href="../good/proview.html"><img src="'+v.imgs[0].img+'"><div class="main_bot"><p>'+
+                            v.goods_name+'</p><div class="main_much"><span class="money">¥'
+                            +v.shop_price+'</span><del>¥'+v.market_price+'</del></div><span class="num">销量：'
+                            +v.sales+'</span></div></li>'
+                        } else{
+                            html += '<li class="link-to" data-href="../good/proview.html"><img src="../../image/timg.jpg" class="hui-lazy" lazySrc="'+v.imgs[0].img
+                            +'"><div class="main_bot"><p>'+v.goods_name+'</p><div class="main_much"><span class="money">¥'
+                            +v.shop_price+'</span><del>¥'+v.market_price+'</del></div><span class="num">销量：'
+                            +v.sales+'</span></div></li>'
+                        }   
+                    })
+                    $('.main ul').append(html);
+                    hui.lazyLoad()
+                    if ($('li').length == res.count) {
+                        isload = 0;
+                        hui.endLoadMore(true)
+                    }
+                   
+                }
+                hui.endRefresh();
+            })
+        }
+        
+      })
+    </script>
+</body>
+</html>

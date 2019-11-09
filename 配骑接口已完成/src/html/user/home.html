@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="msapplication-tap-highlight" content="no">
+    <link rel="stylesheet" href="/src/css/iconfont.css">
+    <link rel="stylesheet" href="/src/css/swiper.css">
+    <link rel="stylesheet" href="/src/css/hui.css">
+    <link rel="stylesheet" href="/src/css/common.css">
+    <title>首页</title>
+    <style>
+        /* 搜索框 */
+        .search {
+            width: 100%;
+            height: .88rem;
+            padding: .14rem .28rem;
+            background: #fff;
+            position: fixed;
+            top: 0;
+        }
+
+        .sear_cen {
+            width: 100%;
+            height: .59rem;
+            border-radius: .3rem;
+            background: #F5F5FD;
+            padding-left: .29rem;
+            padding-right: .29rem;
+            font-size: .28rem;
+            color: #A5A5C1;
+            line-height: .59rem;
+        }
+
+        .sear_cen i {
+            color: #A5A5C1;
+            font-size: .26rem;
+            margin-right: .11rem;
+            line-height: .65rem;
+        }
+
+        .search input {
+            width: 100%;
+            height: 100%;
+            background: #F5F5FD;
+            font-size: .28rem;
+        }
+
+        .search input::-webkit-input-placeholder {
+            font-size: .28rem;
+            color: #A5A5C1;
+        }
+
+        /* 页面头部 */
+        .header {
+            width: 100%;
+            height: 5rem;
+            padding: 0 .28rem 0 .28rem;
+            background: #fff;
+        }
+
+        /* 轮播图 */
+        .hea_top {
+            width: 100%;
+            height: 3.16rem;
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 导航 */
+        .nav {
+            width: 100%;
+            height: 1.76rem;
+            padding-top: .3rem;
+        }
+
+        .naver {
+            width: 1rem;
+            height: 1.2rem;
+            font-size: .24rem;
+            color: #333;
+        }
+
+        .naver img {
+            width: .78rem;
+            height: .78rem;
+            margin: 0 auto .1rem;
+        }
+
+        /* 页面主要内容 */
+        .main {
+            width: 100%;
+            height: auto;
+            padding: .2rem .28rem 1.18rem .28rem;
+        }
+
+        /* 产品介绍 */
+        .main_top {
+            width: 100%;
+            height: 4.24rem;
+            background: #fff;
+            padding-left: .28rem;
+            margin-bottom: .2rem;
+        }
+
+        .main_top .item {
+            width: 100%;
+            height: 1rem;
+            padding-top: .1rem;
+            line-height: 1rem;
+        }
+
+        .item span {
+            font-size: .32rem;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .main_top .itemr {
+            width: 1rem;
+            height: .9rem;
+        }
+
+        .main_top .itemr span {
+            font-size: .24rem;
+            color: #999;
+            font-weight: 400;
+        }
+
+        .main_top .itemr i {
+            color: #ccc;
+            font-size: .25rem;
+        }
+
+        .pro {
+            width: 100%;
+            height: 3.24rem;
+            display: flex;
+        }
+
+        .pro_o {
+            width: 2.2rem;
+            height: 3.24rem;
+            margin-right: .2rem;
+        }
+
+        .pro_o img {
+            width: 2.2rem;
+            height: 2.2rem;
+        }
+
+        .pro_cen {
+            width: 100%;
+            height: .65rem;
+            font-size: .26rem;
+            color: #333;
+            line-height: .65rem;
+        }
+
+        .pro_bot {
+            width: 100%;
+            height: .4rem;
+            display: flex;
+        }
+
+        .pro_bot p {
+            font-size: .24rem;
+            color: #F5B443;
+            line-height: .18rem;
+            margin-right: .19rem;
+            font-weight: bold;
+        }
+
+        .pro_bot del {
+            font-size: .2rem;
+            color: #CCCCCC;
+            line-height: .2rem;
+        }
+
+        /* 精品推荐 */
+        .goods {
+            width: 1.45rem;
+            height: .45rem;
+            margin: .1rem auto;
+        }
+
+        .main_cen {
+            width: 100%;
+            height: auto;
+        }
+
+        .main_cen li {
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .good {
+            width: 3.37rem;
+            height: 4.43rem;
+            border-radius: .06rem;
+            background: #fff;
+            margin-top: .2rem;
+        }
+
+        .good img {
+            width: 3.37rem;
+            height: 3.37rem;
+        }
+
+        .good_bot {
+            width: 100%;
+            height: 1.06rem;
+            padding: 0 .49rem 0 .11rem;
+        }
+
+        .good_much {
+            width: 100%;
+            height: .41rem;
+            display: flex;
+        }
+
+        .good_much span {
+            font-size: .28rem;
+            color: #F5B443;
+            line-height: .18rem;
+            margin-right: .19rem;
+            font-weight: bold;
+        }
+
+        .good_much del {
+            font-size: .2rem;
+            color: #999;
+            line-height: .2rem;
+        }
+        .hui-refresh{
+            padding-top: .88rem;
+        }
+        #hui-load-more{
+        top: -1.2rem;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="refreshContainer" class="hui-refresh">
+            <div class="hui-refresh-icon"></div>
+        <!-- 搜索框 -->
+        <div class="search ">
+            <div class="sear_cen flexc link-to" data-href="./search.html">
+                <i class="iconfont iconsousuo"></i>
+                <input id="sea" type="text" placeholder="请输入商品名称">
+            </div>
+        </div>
+        <!-- 页面头部 -->
+        <div class="header">
+            <!-- 轮播图 -->
+            <div class="hea_top">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <!-- <div class="swiper-slide"><img src="../../image/banner1.png"></div> -->
+
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+            <!-- 导航 -->
+            <div class="nav flexc">
+                <div class="naver tc link-to" data-href="./home_hot.html">
+                    <img src="../../image/item1.png">
+                    热卖商品
+                </div>
+                <div class="naver tc link-to" data-href="./home_new.html">
+                    <img src="../../image/item2.png">
+                    新品上市
+                </div>
+                <div class="naver tc link-to" data-href="./home_day.html">
+                    <img src="../../image/item3.png">
+                    今日促销
+                </div>
+                <div class="naver tc link-to" data-href="./home_sell.html">
+                    <img src="../../image/item4.png">
+                    特卖商品
+                </div>
+            </div>
+        </div>
+        <!-- 页面主要内容 -->
+        <div class="main">
+            <!-- 产品介绍 -->
+            <div class="main_top">
+                <div class="item flexc">
+                    <span>热卖商品</span>
+                    <div class="itemr link-to" data-href="./home_hot.html">
+                        <span>更多</span>
+                        <i class="iconfont icongengduo"></i>
+                    </div>
+                </div>
+                <div class="pro overx">
+                    <!-- <div class="pro_o">
+                        <img src="../../image/photo1.png">
+                        <div class="pro_cen ellipse">纯白毛巾大小尺寸刚刚好</div>
+                        <div class="pro_bot">
+                            <p>¥15.41</p>
+                            <del>¥20.00</del>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <!-- 促销商品 -->
+            <div class="main_top">
+                <div class="item flexc">
+                    <span>促销商品</span>
+                    <div class="itemr link-to" data-href="./home_day.html">
+                        <span>更多</span>
+                        <i class="iconfont icongengduo"></i>
+                    </div>
+                </div>
+                <div class="pro overx">
+                </div>
+            </div>
+            <!-- 新品上市 -->
+            <div class="main_top">
+                <div class="item flexc">
+                    <span>新品上市</span>
+                    <div class="itemr link-to" data-href="./home_new.html">
+                        <span>更多</span>
+                        <i class="iconfont icongengduo"></i>
+                    </div>
+                </div>
+                <div class="pro overx">
+                </div>
+            </div>
+            <!-- 精品推荐 -->
+            <img src="../../image/item5.png" class="goods">
+            <div class="main_cen">
+                <ul>
+                    <li>
+                        <!-- <div class="good link-to" data-href="../good/proview.html" >
+                            <img src="../../image/photo1.png">
+                            <div class="good_bot">
+                                <div class="pro_cen ellipse">
+                                    五星级酒店专用床上用品精品
+                                </div>
+                                <div class="good_much">
+                                    <span>¥655.00</span>
+                                    <del>¥2000.00</del>
+                                </div>
+                            </div>
+                        </div> -->
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 页面底部 -->
+        <div class="footer">
+            <div class="footer_o active ">
+                <i class="iconfont iconshouye "></i>
+                <p>首 页</p>
+            </div>
+            <div class="footer_o " >
+                <i class="iconfont iconfenlei1 "></i>
+                <p>分 类</p>
+            </div>
+            <div class="footer_o " >
+                <i class="iconfont icongouwuche1"></i>
+                <p>购物车</p>
+            </div>
+            <div class="footer_o " >
+                <i class="iconfont iconbiaoqing"></i>
+                <p>我的</p>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <script src="../../js/iconfont.js"></script>
+    <script src="../../js/jquery-3.3.1.min.js"></script>
+    <script src="../../js/hui.js"></script>
+    <script src="../../js/hui-refresh-load-more.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/swiper.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+        $(document).ready(function () {
+            var isload=1;//定义数据拉取判定变量
+           //下拉刷新
+            hui.refresh('#refreshContainer',init);
+            //上拉加载
+            hui.loadMore( getDayGoods);
+            function init(){
+                hui.loading('加载中')
+                getBanner();
+                getDayGoods()
+                getHotGoods()
+                getNewGoods()
+                getSellGoods()
+                hui.endRefresh();
+            }
+            // var obj = {
+            //     phone:12312,
+            //     sex:0,
+            //     id:3,
+            //     href:"./login.html"
+            // }
+            // var str = obj.href+"?"
+            // for (const key in obj) {
+            //     if (obj.hasOwnProperty(key)) {
+            //         if (key != 'href') {
+            //             str+= key+'='+obj[key]+"&"
+            //         }
+
+            //     }
+            // }
+            // console.log(str)
+            //window.location.href=obj.href+"?phone=12312"
+
+            //获取轮播图
+            function getBanner(){
+                reqAjax('/api/app/get_banner', {}, function (res) {
+                if (res.code == 1) {
+                    console.log(res)
+                    var dt = res.data || [];
+                    var html = "";
+                    dt.map(function (v) {
+                        html += '<div class="swiper-slide "><img src="' + v.banner + '"></div>'
+                    })
+                    $('.swiper-wrapper').html(html);
+                    var swiper = new Swiper('.swiper-container', {
+                        loop: true,
+                        pagination: {
+                            el: '.swiper-pagination',
+                        },
+                        autoplay: {
+                            delay: 5000, //5秒切换一次
+                            disableOnInteraction: false,
+                        },
+                    })
+                }
+            })
+            }
+            
+            //获取热卖商品
+             function getHotGoods() {
+                reqAjax('/api/goods/search_hot', {price_order:1,start:0}, function (res) {
+                    if (res.code == 1) {
+                        var dt = res.data || [];
+                        var html = "";
+                        dt.map(function (v) {
+                            html += '<div class="pro_o link-to" data-href="../good/proview.html" data-id="'+v.id+'"><img src="' + v.pic +
+                                '"><div class="pro_cen ellipse">' + v.goods_name + '</div>' +
+                                '<div class="pro_bot"><p>￥' + v.shop_price + '</p><del>￥' + v.market_price + '</del></div></div>'
+                        })
+                        $('.pro:first').html(html);
+                    }
+                })
+            }
+            //获取促销商品
+            function getSellGoods(){
+                reqAjax('/api/goods/get_low_goods', {price_order:2,start:0}, function (res) {
+                if (res.code == 1) {
+                    var dt = res.data || [];
+                    var html = "";
+                    dt.map(function (v) {
+                        html += '<div class="pro_o link-to" data-href="../good/proview.html" data-id="'+v.id+'"><img src="' + v.pic +
+                                '"><div class="pro_cen ellipse">' + v.goods_name + '</div>' +
+                                '<div class="pro_bot"><p>￥' + v.shop_price + '</p><del>￥' + v.market_price + '</del></div></div>'
+                    })
+                    $('.pro:eq(1)').html(html);
+                }
+                
+            })
+            
+            }
+           
+            //获取新品上市
+            function getNewGoods(){
+                reqAjax('/api/goods/search_new', {price_order:1,start:0}, function (res) {
+                if (res.code == 1) {
+                    var dt = res.data || [];
+                    var html = "";
+                    dt.map(function (v) {
+                        html += '<div class="pro_o link-to " data-href="../good/proview.html" data-id="'+v.id+'"><img class="hui-lazy" src="../../image/timg.jpg" lazySrc="' + v.pic +
+                                '"><div class="pro_cen ellipse">' + v.goods_name + '</div>' +
+                                '<div class="pro_bot"><p>￥' + v.shop_price + '</p><del>￥' + v.market_price + '</del></div></div>'
+                    })
+                    $('.pro:eq(2)').html(html);
+                    hui.lazyLoad();
+                }
+            })
+            }
+           
+            //获取精品推荐
+            function getDayGoods(){
+                if (isload != 1) {
+                    return false
+                }
+                var start = $('.main_cen .good').length
+                console.log(start)
+                reqAjax('/api/goods/get_top_goods', {start: start }, function (res) {
+                if (res.code == 1) {
+                    var dt = res.data || [];
+                    var html = "";
+                    dt.map(function (v) {
+                        html += '<div class="good link-to" data-href="../good/proview.html" data-id="'+v.id+'"><img class="hui-lazy" src="../../image/timg.jpg" lazySrc="'+v.img+'"><div class="good_bot"><div class="pro_cen ellipse">'
+                            + v.goods_name+'</div><div class="good_much"><span>¥'+v.shop_price+'</span><del>¥'+v.market_price + '</del></div></div></div>'
+                    })
+                    $('.main_cen').find('li').append(html);
+                    hui.lazyLoad();
+                    if ($('.main_cen .good').length == res.count) {
+                        isload = 0;
+                        hui.endLoadMore(true)
+                    }
+                }
+            })
+            }
+            
+        })
+    </script>
+</body>
+
+</html>

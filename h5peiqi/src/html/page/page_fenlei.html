@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../css/mui.min.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1190625_m3wxzcfcc89.css">
+    <link rel="stylesheet" href="../../css/hui.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/config.css">
+    <title>Document</title>
+    <style>
+        .header{
+            z-index: 100;
+            border-bottom: 1px solid #F2F2F2;
+        }
+        .mui-title{
+          width: 3.47rem!important;
+          height: .3rem;
+          margin: 0 auto;
+          line-height: .3rem;
+          background-color: #f5f5fd;
+          border-radius: .15rem;
+          text-align: left;
+        }
+        .mui-title i{
+           font-size: .16rem;
+           color: #A5A5C1;
+           font-weight: 100!important;
+           margin-left: .15rem;
+           margin-right: .05rem;
+        }
+        .mui-title input{
+           font-size: .14rem;
+           background-color: #f5f5fd;
+           font-weight: 100!important;
+           color: #A5A5C1;
+        }
+        .mui-title input ::-moz-placeholder{color:#A5A5C1;}              
+        .mui-title input ::-webkit-input-placeholder{color:#A5A5C1;}     
+        .mui-title input :-ms-input-placeholder{color:#A5A5C1;} 
+        .slidebar{
+           width: .74rem;
+           height: 100%;
+           position: fixed;
+           left: 0;
+           top: 0;
+           z-index: 14;
+           padding-top: .44rem;
+           background-color: #F5F5F9;
+        }
+        .slidebar .item:first-child{
+            margin-top: 0;
+        }
+        .slidebar .item{
+            width: .72rem;
+            height: .66rem;
+            box-sizing: content-box;
+            border-left: .02rem solid #F5F5F9;
+            background-color: #F5F5F9;
+            border-top: 1px solid #fff;
+            text-align: center;
+            line-height: .66rem;
+            font-size: .16rem;
+            color: #333c3c;
+            font-weight:400;
+        }
+        .main{
+            width: 100%;
+            overflow: hidden;
+            
+            padding-left: .83rem;
+            padding-right: .07rem;
+        }
+        .main .item{
+            width: .8rem;
+            height: auto;
+            float: left;
+            margin: .14rem .07rem 0;
+        }
+        .main .item img{
+            width: .8rem;
+            height: .8rem;
+        }
+        .main .item .text{
+            width: 100%;
+            text-align: center;
+            font-size: .14rem;
+            margin-top: .06rem;
+            color: #999;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <header class='header  flex  align-items space-around'>
+        <div class="mui-title flex align-items">
+            <i class='iconfont icon-sousuo'></i>
+            <input type="text" placeholder='请输入商品名称' readonly/>
+        </div>
+    </header>
+    <div class="slidebar">
+        <!-- <div class="item sildebar-active">办公用品</div> -->
+    </div>
+    <div class="main">
+        <!-- <div class="item">
+            <img src="../../image/goods_01.png" alt="">
+            <div class="text">床上用品</div>
+        </div> -->
+    </div>
+    <div class="footer">
+        <div class="item ">
+            <img class="f-img" src="../../image/page_index_01.png">
+            <img class="s-img" src="../../image/page_index_01_active.png" alt="">
+            <div class="text">首页</div>
+        </div>
+        <div class="item active">
+            <img class="f-img" src="../../image/page_index_02.png">
+            <img class="s-img" src="../../image/page_index_02_active.png">
+            <div class="text">分类</div>
+        </div>
+        <div class="item">
+            <img class="f-img" src="../../image/page_index_03.png">
+            <img class="s-img" src="../../image/page_index_03_active.png">
+            <div class="text">购物车</div>
+        </div>
+        <div class="item">
+            <img class="f-img" src="../../image/page_index_04.png">
+            <img class="s-img" src="../../image/page_index_04_active.png">
+            <div class="text">我的</div>
+        </div>
+    </div>
+</body>
+<script src="../../js/jquery-3.3.1.min.js"></script>
+<script src="../../js/hui.js"></script>
+<script src="../../js/common.js"></script>
+<script>
+    $(document).ready(function(){
+        init()
+        function init(){
+            hui.loading('正在加载')
+            throttle(function(){
+                getCat()
+                $(document).on('click','.slidebar .item',function(){
+                    $(this).addClass('sildebar-active').siblings().removeClass('sildebar-active')
+                    getCatDetail()
+                })
+            }())
+            
+        }
+        //获取分类
+        function getCat(){
+            ajax('/api/nature/get_all_cate',{},function(res){
+                console.log(11)
+                if (res.code == 1) {
+                    var html = "";
+                    var dt = res.data || [];
+                    dt.map(function(v,i){
+                        if (i == 0) {
+                            html+='<div class="item sildebar-active" data-id="'+v.id+'">'+v.name+'</div>'
+                        }else{
+                            html+='<div class="item" data-id="'+v.id+'">'+v.name+'</div>'
+                        }
+                    })
+
+                    $('.slidebar').html(html)
+                    getCatDetail()
+                }
+            })
+        } 
+        //获取分类详情
+        function getCatDetail(){
+            var cid = $('.sildebar-active').data('id');
+            $.when(ajaxPromise('/api/goods/get_cate_goods',{cate_id:cid,start:0,order:1})).done(function(res){
+                if (res.code == 1){
+                    var html = "";
+                    var dt = res.data || [];
+                    dt.map(function(v){
+                        html+='<div class="item"><img src="../../image/zhanwei.png" lazySrc="'+v.pic+'" class="hui-lazy" alt="">'
+                            +'<div class="text">'+v.goods_name+'</div></div>'
+                    })
+                    $('.main').html(html);
+                    hui.lazyLoadNow('hui-lazy')
+                }
+            })
+        }
+    })
+    
+</script>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/iconfont.css">
+    <link rel="stylesheet" href="../../css/hui.css">
+    <title>今日促销</title>
+    <style>
+        .container {
+            padding-bottom: 1.2rem;
+            background: #FAFAFE;
+        }
+
+        .container .head p {
+            margin-left: -.36rem;
+            font-size: .36rem;
+        }
+
+        .header {
+            width: 100%;
+            height: 1.71rem;
+        }
+
+        .sea_bot {
+            width: 100%;
+            height: .83rem;
+            display: flex;
+            justify-content: space-around;
+            color: #999;
+            background: #fff;
+            position: fixed;
+            top: .88rem;
+            z-index: 1;
+        }
+
+        .sea_bot .active {
+            color: #5E43F5;
+        }
+
+        .sea_boto {
+            width: 1.2rem;
+            height: .83rem;
+            display: flex;
+        }
+
+        .sea_boto span {
+            font-size: .28rem;
+            line-height: .83rem;
+        }
+
+        .sea_r {
+            width: .4rem;
+            height: .83rem;
+            margin-left: .1rem;
+            padding-top: .05rem;
+            position: relative;
+        }
+
+        .sea_r i {
+            font-size: .2rem;
+            margin: 0;
+            line-height: 0;
+            position: absolute;
+            top: .3rem;
+            color: #999;
+        }
+
+        .header .sea_bot .xia {
+            position: absolute;
+            top: .53rem;
+            left: -.03rem;
+        }
+
+        .sea_bot .sea_boto .sea_r .active {
+            color: #5E43F5;
+        }
+
+        /* 搜索列表 */
+        .main {
+            width: 100%;
+            height: auto;
+            padding: .28rem .28rem;
+        }
+
+        .main ul {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .main li {
+            width: 3.37rem;
+            ;
+            height: 4.88rem;
+            margin-bottom: .2rem;
+            background: #fff;
+        }
+
+        li img {
+            width: 100%;
+            height: 3.37rem;
+        }
+
+        .main_bot {
+            width: 100%;
+            height: 1.51rem;
+            padding: .15rem .49rem .2rem .11rem;
+            ;
+        }
+
+        .main_bot p {
+            font-size: .26rem;
+            color: #333;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .main_much {
+            width: 100%;
+            height: .45rem;
+        }
+
+        .main_bot .main_much span {
+            font-size: .32rem;
+            color: #F5B443;
+            font-weight: bold;
+            margin-right: .19rem;
+            line-height: .6rem;
+        }
+
+        .main_much del {
+            font-size: .2rem;
+            color: #999;
+            line-height: .63rem;
+        }
+
+        .main_bot span {
+            font-size: .24rem;
+            color: #999;
+            line-height: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- 搜索框 -->
+        <div class="header ">
+            <div class="head flexc">
+                <i id="hrefh" class="iconfont iconiconfontjiantou1 link-to" data-href="./home.html"></i>
+                <p>今日促销</p>
+                <span></span>
+            </div>
+            <div class="sea_bot">
+                <div class="sea_boto active">
+                    <span>综合排序</span>
+                </div>
+                <div class="sea_boto ">
+                    <span>价格</span>
+                    <div class="sea_r">
+                        <i class="iconfont iconxiangshang "></i>
+                        <i class="iconfont iconxiangxia xia"></i>
+                    </div>
+                </div>
+                <div class="sea_boto">
+                    <span>销量</span>
+                    <div class="sea_r">
+                        <i class="iconfont iconxiangshang "></i>
+                        <i class="iconfont iconxiangxia xia"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 搜索列表 -->
+        <div id="refreshContainer" class="hui-refresh">
+            <div class="hui-refresh-icon"></div>
+            <div class="main ">
+                <ul>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/iconfont.js"></script>
+    <script src="../../js/jquery-3.3.1.min.js"></script>
+    <script src="../../js/hui.js"></script>
+    <script src="../../js/hui-refresh-load-more.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+         $(document).ready(function(){
+           
+           //程序主入口
+           hui.refresh('#refreshContainer', init);
+           function init(){
+               hui.loading('加载中')
+               getGoods()
+              // tapSwitch()
+               tapMonitor()
+              
+           }
+          
+           //获取信息
+           function getGoods(){
+               reqAjax('/api/goods/search_hot', {price_order:2,start:0}, function (res) {
+                   if (res.code == 1) {
+                       var dt = res.data || [];
+                       var html = "";
+                       dt.map(function (v,i) {
+                           if (i<=6) {
+                               html += '<li class="link-to" data-href="../good/proview.html"><img src="'+v.pic+'"><div class="main_bot"><p>'+
+                               v.goods_name+'</p><div class="main_much"><span class="money">¥'
+                               +v.shop_price+'</span><del>¥'+v.market_price+'</del></div><span class="num">销量：'
+                               +v.sales+'</span></div></li>'
+                           } else{
+                               html += '<li class="link-to" data-href="../good/proview.html"><img src="../../image/timg.jpg" class="hui-lazy" lazySrc="'+v.pic+'"><div class="main_bot"><p>'+
+                               v.goods_name+'</p><div class="main_much"><span class="money">¥'
+                               +v.shop_price+'</span><del>¥'+v.market_price+'</del></div><span class="num">销量：'
+                               +v.sales+'</span></div></li>'
+                           }   
+                       })
+                       $('.main ul').html(html);
+                       hui.lazyLoad()
+                   }
+                   hui.endRefresh();
+               })
+           }
+           //头部切换监听
+           function tapMonitor(){
+               $('body').on('click','.sea_boto',function(){
+                   $(this).addClass('active').siblings().removeClass('active').find('i').removeClass('active');
+                   if($(this).find('.sea_r')){
+                        if ($(this).find('.iconxiangshang').hasClass('active')) {
+                           $(this).find('.iconxiangshang').removeClass('active')
+                           $(this).find('.iconxiangxia').addClass('active')
+                       }else{
+                           $(this).find('.iconxiangshang').addClass('active')
+                           $(this).find('.iconxiangxia').removeClass('active')
+                       }
+                   }
+              })
+           }     
+
+       })
+    </script>
+</body>
+
+</html>

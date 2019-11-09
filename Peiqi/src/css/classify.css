@@ -1,0 +1,134 @@
+  body {
+    background: #FAFAFE;
+  }
+  /* 头部部分开始 */
+  body .header {
+    position: fixed;
+    top: 0rem;
+    width: 100%;
+    height: 1.04rem;
+    z-index: 2;
+    background:#FFFFFF;
+  }
+  
+  body .header .search-box {
+    width: 6.94rem;
+    height: .59rem;
+    position: relative;
+    background: #f5f5fd;
+    border-radius: .30rem;
+    margin: .31rem auto 0;
+  }
+  
+  body .header .search-box .iconsousuo {
+    position: absolute;
+    box-sizing: border-box;
+    font-size: .25rem;
+    padding: .15rem 0 0 .29rem;
+    color: #A5A5C1;
+  }
+  
+  body .header .search-box .search-ipt {
+    position: absolute;
+    font-size: .28rem;
+    font-weight: 400;
+    margin-left: .65rem;
+    line-height: .59rem;
+  }
+  
+  body .header .search-box .search-ipt .search-item {
+    font-size: .28rem;
+    background: #F5F5FD;
+    width: 6rem;
+  }
+
+  .border{
+      width: 100%;
+      height:2px;
+      background:rgba(242,242,242,1);
+      margin-top: 1.1rem;
+  }
+  .content{
+      width: 100%;
+      height: 10.93rem;
+      overflow: hidden;
+  }
+  /* 左边导航栏开始 */
+  .nav-left{
+      width: 1.52rem;
+      height: 100%;
+      height: 10.93rem;
+      background:rgba(245,245,249,1);
+      float: left;
+      text-align: center;
+      overflow-y: scroll;
+  }
+  .menu{
+      display: inline-block;
+      width: 100%;
+      height: 1.3rem;
+      font-size:.32rem;
+      font-weight:400;
+      color:rgba(51,60,60,1);
+      line-height: 1.3rem;
+      border-left: .06rem solid rgba(245,245,249,1);
+      border-bottom: 2px solid #FFFFFF;
+  }
+  .content .active{
+    background:#FFFFFF;
+    color:rgba(156,83,246,1);
+    border-left: .06rem solid rgba(156,83,246,1);
+    box-shadow:0px 2px 7px 0px rgba(74,3,161,0.27);
+  }
+  .menu:active{
+    line-height: 1.3rem;
+    width: 100%;
+    height: 1.3rem;
+    font-size:.32rem;
+    font-weight:400;
+    color:rgba(156,83,246,1);
+    border-bottom: 2px solid rgba(245,245,249,1);
+    border-left: .06rem solid rgba(156,83,246,1);
+    box-shadow:0px 2px 7px 0px rgba(74,3,161,0.27);
+    background: #FFFFFF;
+  }
+
+
+  /* 底部开始 */
+  .footer {
+    width: 100%;
+    height: 1.08rem;
+    /* padding-top: 1rem; */
+  }
+  
+  .footer .footer-content {
+    width: 100%;
+    height: 1.08rem;
+    position: fixed;
+    z-index: 5;
+    bottom: 0;
+    overflow: hidden;
+    background: #FFFFFF;
+  }
+  
+  .footer .footer-content li {
+    text-align: center;
+    width: 25%;
+    height: 1.08rem;
+    float: left;
+  }
+  
+  .footer .footer-content img {
+    width: .47rem;
+    height: .47rem;
+    margin: 0.2rem auto 0;
+  }
+  
+  .footer .footer-content p {
+    font-size: .22rem;
+    font-weight: 400;
+  }
+  
+  .footer .active {
+    color: #5e43f5;
+  }

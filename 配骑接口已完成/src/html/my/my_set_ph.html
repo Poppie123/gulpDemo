@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/iconfont.css">
+    <link rel="stylesheet" href="../../css/hui.css">
+    <title>更换手机</title>
+    <style>
+    .container{
+        padding-bottom: 1.2rem;
+        background: #FAFAFE;
+    }
+    .container .head p{
+        margin-left: -.36rem;
+        font-size: .36rem;
+    }
+    /* 页面主要内容 */
+    .main{
+        width: 100%;
+        height: 1.91rem;
+        background:#fff;
+        margin: 1.08rem auto 0;
+        padding: 0 .28rem;
+    }
+    .main_top{
+        width: 100%;
+        height: .94rem;
+        border-bottom: 1px solid #EEEEEE;
+        line-height: .94rem;
+        font-size: .32rem;
+        color: #999;
+    }
+    .main_top span{
+        margin-right: .48rem;
+    }
+    .main_bot{
+        width: 100%;
+        height: .96rem;
+        line-height: .96rem;
+    }
+    .main_bot input{
+       margin: 0;
+       color: #333;
+       font-size: .32rem;
+    }
+    .main_bot input::-webkit-input-placeholder{
+        font-size: .28rem;
+        color: #999;
+    }
+    .main_botr{
+        width: 1.8rem;
+        height: .96rem;
+        color: #9C53F6;
+        font-size: .28rem;
+        text-align: end;
+    }
+    .main_bot .active{
+        color: #999 ;
+        background: #fff;
+    }
+    /* 提示部分 */
+    .main_cen{
+        width: 6rem;
+        height: .3rem;
+        margin: .49rem 0 3.7rem .28rem;
+        font-size: .24rem;
+        color: #999;
+        line-height: .3rem;
+    }
+    .main_cen p{
+       color: #9C53F6;
+    }
+    /* 按钮部分 */
+    .bot{
+        width: 5.9rem;
+        height: .88rem;
+        border-radius:.44rem;
+        background: #D8DADC;
+        text-align: center;
+        line-height: .88rem;
+        color: #fff;
+        font-size: .36rem;
+        margin: 0 auto;
+        font-weight:bold;
+    }
+.fin .active{
+    background: #9C53F6;
+}
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- 页面头部 -->
+    <div class="head flexc">
+        <i  class="iconfont iconiconfontjiantou1 link-to" data-href="./my_set.html" ></i>
+        <p style="margin-left: -.32rem">更换手机</p>
+        <span></span>
+    </div>
+    <!-- 页面主要内容 -->
+    <div class="main">
+        <div class="main_top flex">
+            <span>+86</span>
+            <p>136***52365</p>
+        </div>
+        <div class="main_bot flexc">
+            <input type="text" placeholder="请输入验证码">
+            <div class="main_botr">获取验证码</div>
+        </div>
+    </div>
+    <!-- 提示部分 -->
+    <div class="main_cen flex">
+        <p>*</p>
+        <span>为了您的帐户安全，更换手机号需要先验证原手机号</span>
+    </div>
+    <!-- 按钮部分 -->
+    <div class="fin">
+        <div class="bot">下一步</div>
+    </div>
+</div>
+    
+    <script src="../../js/iconfont.js"></script>
+    <script src="../../js/jquery-3.3.1.min.js"></script>
+    <script src="../../js/hui.js"></script>
+    <script src="../../js/hui-refresh-load-more.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+        $(document).ready(function(){
+            var tel;
+            //获取手机号
+            
+            $.ajax({
+                url:'/api/user/get_user_info',
+                method:'post',
+                data:{      
+                },
+                success:function(res){
+                    if (res.code == 1) {
+                        $('.main_top p').html(res.data.phone);
+                        tel=res.data.tel
+                        // console.log(tel)
+                    }
+                },
+                err:function(err){
+                }
+            })
+
+            var a =3;
+            var tmp;
+            //获取验证码
+            $('.main_botr').click(function(){
+                var b=$('.main_botr');
+                var c = tel
+                // console.log(b)
+                $.ajax({
+                    url:'/api/user/get_code',
+                    method:'post',
+                    data:{
+                        phone:c,
+                    },
+                    success:function(res){
+                        hui.toast(res.data)
+                    },
+                    err:function(err){
+                    }
+                })
+                if (b.html() == "获取验证码") {
+                    b.addClass('active');
+                    b.html( (a--)+"s后重新获取");
+                    // console.log(111)
+                  var tmp = setInterval(function(){
+                        if(a == 0){
+                            b.removeClass('active');
+                            a = 3;
+                            b.html("获取验证码");
+                            clearInterval(tmp);
+                        }else{
+                            b.html(a+"s后重新获取");
+                            a--;
+                        }
+                    },1000)
+                }
+            })
+             //按钮变色
+            $('input').on('input propertychange',function(){
+                console.log($(this).val())
+                if ($(this).val() !== "") {
+                    $('.bot').addClass('active');
+                }else{
+                    console.log()
+                    $('.bot').removeClass('active');
+                }
+            })
+            //下一步跳转
+            $('.bot').click(function(){
+                if ($(this).hasClass('active')) {
+                    // window.location.href="./my_set_ph_ok.html"
+                    var code =$('.main_bot input').val();
+                    $.ajax({
+                        url:'/api/user/edit_old_phone',
+                        method:'post',
+                        data:{
+                            code:code,
+                        },
+                        success:function(res){
+                           
+                            if (res.code == 1) {
+                                hui.toast(res.msg)
+                                setTimeout(function(){
+                                window.location.href='./my_set_ph_ok.html'
+                                },700)
+                            }else if(res.code == 0){
+                                hui.loading(false, true)
+                                hui.toast('手机号或者验证码错误！')   
+                            }     
+                        },
+                        err:function(err){ 
+                           hui.toast(res.msg)
+                        }
+                    })
+                }
+            })
+
+
+        })
+</script>
+</body>
+</html>

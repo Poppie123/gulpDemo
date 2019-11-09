@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/iconfont.css">
+    <link rel="stylesheet" href="../../css/hui.css">
+    <title>编辑地址</title>
+    <style>
+    .container{
+        padding-bottom: 1.7rem;
+        padding-top: 1.08rem;
+    }
+    .container .head p{
+        margin-left: -.36rem;
+        font-size: .36rem;
+    }
+
+    /* 按钮部分 */
+    .bot{
+        width: 100%;
+        height: 1.7rem;
+        background: #FAFAFE;
+        position: fixed;
+        bottom: 0;
+    }
+    .bott{
+        width: 6.94rem;
+        height: .88rem;
+        border:1px solid rgba(51,60,60,1);
+        border-radius:.44rem;
+        text-align: center;
+        line-height: .88rem;
+        margin: 0 auto;
+        font-size: .32rem;
+        color: #333C3C;
+    }
+    /* 主要内容 */
+    .main{
+        width: 100%;
+        min-height: 4.57rem;
+        background: #fff;
+        padding: 0 .28rem;
+        line-height: .9rem;
+    }
+    .main span{
+        font-size: .28rem;
+        color: #999;
+    }
+    .main input{
+        min-width: 5rem;
+        height: .88rem;
+        font-size: .32rem;
+        color: #333;
+    }
+    .main input::placeholder{
+        color: #999;
+        font-size: .28rem;
+    }
+    .name{
+        width: 100%;
+        height: .91rem;
+        border-bottom: 1px solid #EEEEEE;
+    }
+    .namel{
+        width: 1.4rem;
+        height: 100%;
+    }
+    .namer{
+        width: auto;;
+        height:100%;
+    }
+    .sex{
+        width: .36rem;
+        height: .36rem;
+        border-radius: 50%;
+        border: 1px solid #333C3C;
+        margin-right: .17rem;
+        margin-top: .26rem;
+        position: relative;
+    }
+    .namer p{
+        font-size: .32rem;
+        color: #333;
+        margin-right: .56rem;
+    }
+    .sex i{
+        font-size: .37rem;
+        position: absolute;
+        top: -.27rem;
+        left: -.03rem;
+        color: #9C53F6;
+    }
+    .ress{
+        width: auto;
+        height: 100%;
+        padding-bottom: 1px;
+    }
+    .main .ress input{
+        text-align: end;
+        height: .88rem;
+        background: #fff;
+    }
+    .ress i{
+        color: #CCC;
+    }
+    .hui-picker-menu{
+        height: .94rem;
+    }
+    .namer .sex .iconfont{
+        display: none;
+    }
+    .namer .active .iconfont{
+        display: block;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 页面头部 -->
+        <div style="border-bottom: 1px solid #F5F5F9" class="head flexc">
+            <i  class="iconfont iconiconfontjiantou1 " ></i>
+            <p>编辑地址</p>
+            <span></span>
+        </div>
+        <!-- 主要内容 -->
+        <div class="main">
+            <div class="name flex">
+                <div class="namel">
+                    <span>联系人：</span>
+                </div>
+                <input value="" type="text" placeholder="请输入联系人姓名">
+            </div>
+            <div class="name flex">
+                <div class="namel">
+                    <span>性别：</span>
+                </div>
+                <div class="namer flex">
+                    <div class="sex" data-sex="1">
+                        <i class="iconfont iconduihao2 "></i>
+                    </div>
+                    <p>先生</p>
+                    <div class="sex" data-sex="2">
+                        <i class="iconfont iconduihao2"></i>
+                    </div>
+                    <p>女士</p>
+                </div>
+            </div>
+            <div class="name flex">
+                <div class="namel">
+                    <span>手机号：</span>
+                </div>
+                <input  type="text" placeholder="请输入联系人电话">
+            </div>
+            <div class="name flexc" id="btn2">
+                <div class="namel">
+                    <span>选择地区：</span>
+                </div>
+                <div class="ress flex">
+                    <input  type="text" class="dizhi" disabled placeholder="请选择">
+                    <i class="iconfont icongengduo"></i>
+                </div> 
+            </div>
+            <div style="border: 0" class="name flex">
+                <div class="namel">
+                    <span>具体地址：</span>
+                </div>
+                <input type="text" placeholder="请输入具体的收货地址">
+            </div>
+        </div>
+        <!-- 按钮部分 -->
+        <div class="bot">
+            <div class="bott">保存地址</div>
+        </div>
+    </div>
+   
+    <script src="../../js/iconfont.js"></script>
+    <script src="../../js/jquery-3.3.1.min.js"></script>
+    <script src="../../js/hui.js"></script>
+    <script src="../../js/hui-refresh-load-more.js"></script>
+    <script src="../../js/hui-picker.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+        $(document).ready(function(){
+            var pid = null;//定义省份
+            var cid = null;//定义市区
+            var did = null;//定义县区
+            var status = getQueryString('status')//获取url中的status值
+            var id = getQueryString('id');//获取url中的status值
+            var address_id = getQueryString('address_id')//拿取id方便回转商品详情
+            var source=getQueryString('source')//附带source区分订单与我的跳转
+            var style =  getQueryString('style')
+            var cart_ids = getQueryString('cart_ids') || '';
+            //返回上一页
+            $('.iconiconfontjiantou1').click(function(){
+                history.go(-1)
+            })
+            reqAjax('/api/user/area_list',{},function(res){//获取中国所有地址信息
+                var areaData = JSON.parse(res)//将对面转义为字符串
+                var picker2 = new huiPicker('#btn2', function(){//类似点击事件
+                    var sheng   = picker2.getText(0);
+                    var shi     = picker2.getText(1);
+                    var qu      = picker2.getText(2);
+                    pid = picker2.getVal(0)
+                    cid = picker2.getVal(1)
+                    did = picker2.getVal(2)
+                    hui('.dizhi').val(sheng + shi + qu);//定义省市区
+                });
+                picker2.level = 3;//地址分为三级
+                picker2.bindRelevanceData(areaData)//数据来源，一般选择数据定义的
+            })
+            getAddress()//获取修改收货地址信息
+            function getAddress(){
+                reqAjax('/api/user/get_edit_address_info',{address_id:address_id},function(res){
+                    if (res.code == 1) {
+                        var dt = res.data || [];
+                        var name = dt.name;
+                        var phone =dt.phone;
+                        var space=dt.address_text.province_text+dt.address_text.city_text+dt.address_text.district_text;
+                        var address=dt.address;
+                        $('input:eq(0)').val(name);
+                        $('input:eq(1)').val(phone);
+                        $('input:eq(2)').val(space);
+                        $('input:eq(3)').val(address);
+                        pid = dt.province;
+                        cid = dt.city;
+                        did = dt.district;
+                        if (dt.sex == 1) {//男女数据选择
+                            $('.sex:eq(0)').addClass('active');
+                        }else{
+                            $('.sex:eq(1)').addClass('active');
+                        }
+                    } 
+                })
+            }
+            //选择性别切换
+            $('.sex').click(function(){
+                $(this).addClass('active').siblings().removeClass('active')
+            })
+            //保存
+            $('.bott').click(function(){
+                var newname = $('input:eq(0)').val();
+                var newsex = $('.namer .active').data('sex');
+                var newphone = $('input:eq(1)').val();
+                var newaddress = $('input:eq(3)').val();
+                console.log(newaddress)
+                reqAjax('/api/user/edit_my_address',{address_id:address_id,name:newname,sex:newsex,phone:newphone,address:newaddress,status:status,province:pid,city:cid,district:did,},function(res){
+                    if (res.code == 1) {
+                        hui.toast('更改成功！')
+                        setTimeout(function(){
+                            console.log(id)
+                            console.log(source)
+                            window.location.href='./address.html?source='+source+'&id='+id+'&style='+style+'&cart_ids='+cart_ids;
+                        },700)
+                    }
+                })
+               
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+body{
+    background:rgba(245,245,249,1);
+}
+
+/* 设置开始 */
+.header{
+    display: flex;
+    align-items: center;
+    width:100%;
+    height:.93rem; 
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    font-size: 0;
+    background: #FFFFFF;
+    border-bottom: .01rem solid rgba(246,246,246,1);
+}
+
+.iconiconfontjiantou1{
+    margin-left:.28rem;
+    font-size: .3rem;
+    color:#999999;
+}
+.header-write{ 
+    margin-left:2.6rem;
+    text-align: center;
+    font-size:.36rem;
+    font-weight:400;
+    color:rgba(51,51,51,1);
+}
+
+/* 更换手机开始 */
+.replace-phone{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background: #FFFFFF;
+    line-height: .94rem;
+    margin-top: 1.03rem;
+  }
+.replace-phone .replace-item{
+    font-size: .32rem;
+    color:rgba(153,153,153,1);
+  }
+.replace-item input{
+    font-size: .32rem;
+    color:rgba(153,153,153,1);
+    margin-left: .1rem;
+  }
+.replace-item .replace-item-left{
+    margin-left: .28rem;
+  }
+.replace-phone .border{
+    width: 6.94rem;
+    margin: 0 auto;
+    border-bottom: 1px solid #eeeeee;
+  }
+.replace-phone .code{
+    font-size: .28rem;
+    display: flex;
+    justify-content: space-between;
+    color:rgba(153,153,153,1);
+}
+.replace-phone .code span{
+  color:rgba(153,153,153,1);
+}
+.code input{
+    font-size: .28rem;
+    padding-left: .28rem;
+}
+#getcode{
+    margin-right: .28rem;
+    /* color:rgba(156,83,246,1); */
+}
+.warn-content{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin-top: .45rem;
+  margin-left: .28rem;
+}
+.warn-content .iconfont{
+  font-size:.01px;
+  color: #9C53F6;
+}
+.warn{
+  font-size:.24rem;
+  font-weight:400;
+  color:#999999;
+}
+/* 底部开始 */
+.replace-footer{
+    width: 100%;
+    height: .88rem;  
+    line-height: .88rem;
+    text-align: center;
+  }
+
+.replace-footer .footer-item{
+    position: fixed;
+    z-index: 2;
+    bottom:4.63rem;
+    width:5.9rem;
+    height:.88rem;
+    background:rgba(156,83,246,1);
+    color:rgba(255,255,255,1);
+    box-shadow:0px 6px 8px 0px rgba(222,196,255,1);
+    border-radius:.44rem;
+    margin-left: .80rem;
+  }
