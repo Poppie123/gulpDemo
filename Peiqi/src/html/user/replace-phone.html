@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>更换手机</title>
+    <link rel="stylesheet" href="../css/cleardefault.css">
+    <link rel="stylesheet" href="../css/iconfont.css">
+    <link rel="stylesheet" href="../css/swiper.css">
+    <link rel="stylesheet" href="../css/replace-phone.css">
+</head>
+
+<body>
+    <!-- 更换手机 -->
+    <div class="header">
+        <div class="header-content">
+            <i class="iconfont iconiconfontjiantou1"></i>
+            <span class="header-write">更换手机</span>
+        </div>
+    </div>
+
+   
+    <!-- 更换手机开始 -->
+    <div class="replace-phone">
+        <div class="replace-item">
+            <span class="replace-item-left" >+86</span>
+            <input type="tel"  placeholder="请输入新的手机号" maxlength="11"> 
+        </div>
+        <div class="border"></div>
+        <div class="replace-item code">
+            <input type="text" class="code-join" placeholder="请输入验证码">
+            <span class="" id="getcode">获取验证码</span>
+        </div>
+    </div>
+    
+    <!-- 底部开始 -->
+    <div class="replace-footer">
+        <div class="replace-footer-content">
+            <div class="footer-item">确定</div>
+        </div>
+    </div>
+    
+
+
+
+
+    <script src="../js/common.js"></script>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- 验证码 -->
+    <script>
+        var getcode = document.getElementById('getcode');
+        setDomTime([getcode])
+        function setDomTime(arr){
+            var arr = Array.isArray(arr) ? arr : []
+            arr.map(function(v){
+                v.onclick = function(){
+                    setTime(v)
+                }
+            })
+        }
+        //倒计时
+        function setTime(dom){
+            if (dom.innerHTML == '获取验证码') {
+                var t = 60;
+                var timp = setInterval(function(){
+                    if (t > 1) {
+                        t--;
+                        dom.innerHTML = t+'s后获取验证码'
+                    }else{
+                        dom.innerHTML = '获取验证码';
+                        t = 5;
+                        clearInterval(timp)
+                    }
+                },1000);
+            }
+        }
+    </script>
+</body>
+
+</html>

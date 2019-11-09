@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../css/mui.min.css">
+    <link rel="stylesheet" href="http:////at.alicdn.com/t/font_1190625_n3wlu0ewu1n.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/config.css">
+    <title>订单列表</title>
+    <style>
+        html,body{
+            background-color: #FAFAFE;
+        }
+        .nav{
+            width: 100%;
+            height: .3rem;
+            position: fixed;
+            top: .44rem;
+            background-color: #fff;
+            padding: 0 .14rem;
+            overflow-y: hidden;
+            overflow-x: scroll;
+            white-space: nowrap;
+        }
+        .nav .item{
+            width: auto;
+            height: .3rem;
+            line-height: .3rem;
+            font-size: .14rem;
+            font-weight:400;
+            color: #666666;
+            position: relative;
+            display: inline-block;
+            margin-right: .37rem;
+        }
+        .nav .item:last-child{
+            margin-right: 0;
+        }
+        .list{
+            width: 100%;
+            padding-top: .35rem;
+            overflow: hidden;
+        }
+        .list .item{
+            width: 100%;
+            height: auto;
+            background-color: #fff;
+            padding: 0 .14rem;
+        }
+        .list .item .title{
+            width: 100%;
+            height: .51rem;
+            
+        }
+        .list .item .title .left{
+            font-size: .12rem;
+            color: #999;
+        }
+        .list .item .title .left span{
+            font-size: .14rem;
+            color: #999;
+        }
+        .list .item .title .order_status{
+            font-size: .14rem;
+        }
+        .list .item .goods_list{
+            width: 100%;
+            overflow: hidden;
+        }
+        .list .item .gds{
+            width: 100%;
+            height: auto;
+            margin-bottom: .19rem;
+            overflow: hidden;
+        }
+        .list .item .gds:last-child{
+           border-bottom: 1px solid #eee;
+           margin-bottom: 0;
+        }
+        .list .item .gds:last-child .right{
+            border-bottom: 0;
+        }
+        .list .item .gds > img{
+            width: .74rem;
+            height: .74rem;
+            border-radius: .03rem;
+            float: left;
+        }
+        .list .item .gds .right{
+            width: 2.65rem;
+            height: .93rem;
+            float: right;
+            padding-bottom: .19rem;
+            border-bottom: 1px solid #eee;
+        }
+        .list .item .gds .right .desc{
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-size: .14rem;
+            color: #333;
+            font-weight: bold;
+        }
+        .list .item .gds .right .guige{
+            width: 100%;
+            font-size: .12rem;
+            color: #999;
+        }
+        .list .item .gds .right .price{
+            width: 100%;
+            height: .16rem;
+            line-height: .16rem;
+            font-size: .14rem;
+            color: #333;
+            text-align: right;
+            position: relative;
+            top: 0.06rem;
+        }
+        .list .item .total_price{
+            width: 100%;
+            height: .52rem;
+            font-size: .12rem;
+            color: #333;
+        }
+        .list .item .total_price .b{
+            font-size: .16rem;
+            color: #333;
+        }
+        .footer-bottom{
+            width: 100%;
+            height: .52rem;
+            padding-bottom: .2rem;
+        }
+        .footer-bottom .left{
+            font-size: .14rem;
+            color: #999;
+        }
+        .footer-bottom .left span{
+            color: #333C3C;
+        }
+        .footer-bottom .btn-all .btn{
+             width: .9rem;
+             height: .3rem;
+             float: right;
+             border-radius: .03rem;
+             line-height: .31rem;
+             text-align: center;
+             border: 1px solid #ddd;
+             font-size: .14rem;
+             color: #666;
+             margin-left: .1rem;
+        }
+        .footer-bottom .btn-all .delete{
+            color: #999;
+            border: 1px solid #AAAAAA;
+        }
+    </style>
+</head>
+<body>
+    <header class="header mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">我的订单</h1>
+    </header>
+    <div class="main">
+        <div class="nav ">
+            <div class="item nav-active">全部</div>
+            <div class="item">待付款</div>
+            <div class="item">待发货</div>
+            <div class="item">待收货</div>
+            <div class="item">待评价</div>
+            <div class="item">售后</div>
+        </div>
+        <div class="list">
+            <div class="item">
+                <div class="title flex align-items space-between">
+                    <div class="left">订单编号<span class="order_no">321654616416168</span></div>
+                    <div class="order_status app-font-color">待付款</div>
+                </div>
+                <div class="goods_list">
+                    <div class="gds">
+                        <img src="../../image/order_goods.png">
+                        <div class="right flex flex_wrap align-content-stretch">
+                            <div class="desc">倩碧（CLINIQUE）卓越润肤乳125m倩碧（CLINIQUE）卓越润肤乳125m倩碧（CLINIQUE）卓越润肤乳125m</div>
+                            <div class="guige "><span>无油黄油套装</span><span>x1</span></div>
+                            <div class="price flex space-between align-items">￥249.00</div>
+                        </div>
+                    </div>
+                    <div class="gds">
+                        <img src="../../image/order_goods.png">
+                        <div class="right flex flex_wrap align-content-stretch">
+                            <div class="desc">倩碧（CLINIQUE）卓越润肤乳125m倩碧（CLINIQUE）卓越润肤乳125m倩碧（CLINIQUE）卓越润肤乳125m</div>
+                            <div class="guige flex space-between align-items"><span>无油黄油套装</span><span>x1</span></div>
+                            <div class="price">￥249.00</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="total_price flex align-items flex_end" >
+                    共<span class="a">2</span>件商品&nbsp;&nbsp;&nbsp;合计( 元 )：<span class="b">￥503.00</span> 
+                </div>
+                <div class="footer-bottom flex space-between align-items">
+                    <div class="left">申请退款：<span>退款中</span></div>
+                    <div class="btn-all">
+                        <div class="btn" data-onlyType="1" style="display:none">取消订单</div>
+                        <div class="btn order-btn-bg" data-onlyType="2" style="display:none">去付款</div>
+                        <div class="btn order-btn-nobg" data-onlyType="3" style="display:none">申请退款</div>
+                        <div class="btn order-btn-nobg" data-onlyType="4" style="display:none">取消申请</div>
+                        <div class="btn" data-onlyType="5" style="display:none">申请退货</div>
+                        <div class="btn order-btn-bg" data-onlyType="6" style="display:none">确认收货</div>
+                        <div class="btn order-btn-bg" data-onlyType="7" style="display:none">评价</div>
+                        <div class="btn delete" data-onlyType="8" style="display:block">删除</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../../js/jquery-3.3.1.min.js"></script>
+<script src="../../js/common.js"></script>
+<script>
+   $('.nav .item').click(function(){
+       $(this).addClass('nav-active').siblings().removeClass('nav-active')
+   })
+   // 1=>取消订单; 2=>去付款; 3=>申请退款; 4=>取消申请; 5=>申请退货; 6=>确认收货; 7=>评价; 8=>删除
+   $(document).on('click','.btn-all > div',function(){
+       
+   })
+</script>
+</html>

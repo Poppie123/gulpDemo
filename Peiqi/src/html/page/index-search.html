@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 视图窗口，移动端特属的标签。 -->
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+    <!-- 是否启动webapp功能，会删除默认的苹果工具栏和菜单栏。 user-scalable=no"用户可扩展否 -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../css/cleardefault.css">
+    <link rel="stylesheet" href="../../css/iconfont.css">
+    <link rel="stylesheet" href="../../css/swiper.css">
+    <link rel="stylesheet" href="../../css/hui.css">
+    <title>首页搜索</title>
+    <style>
+        body {
+            background: #FAFAFE;
+        }
+
+        /* 头部部分开始 */
+        body .header {
+            position: fixed;
+            top: 0rem;
+            width: 100%;
+            height: 1.09rem;
+            z-index: 2;
+            background: #FFFFFF;
+        }
+
+        .header-content {
+            overflow: visible;
+            position: relative;
+            margin-top: .3rem;
+        }
+
+        .header .iconiconfontjiantou1 {
+            position: absolute;
+            margin-left: .28rem;
+            line-height: .59rem;
+        }
+
+        .header .search-box {
+            position: absolute;
+            width: 5.65rem;
+            height: .59rem;
+            margin-left: .72rem;
+            background: #f5f5fd;
+            border-radius: .30rem;
+        }
+
+        .header .header-span {
+            position: absolute;
+            margin-left: 6.67rem;
+            line-height: .59rem;
+            font-size: .28rem;
+            font-weight: 500;
+            color: rgba(51, 51, 51, 1);
+        }
+
+
+        body .header .serch-content {
+            width: 5.65rem;
+            height: .59rem;
+            position: relative;
+        }
+
+        body .header .search-box .iconsousuo {
+            position: absolute;
+            box-sizing: border-box;
+            font-size: .25rem;
+            padding: .18rem 0 0 .29rem;
+            color: #A5A5C1;
+        }
+
+        body .header .search-box .search-ipt {
+            position: absolute;
+            font-size: .28rem;
+            font-weight: 400;
+            margin-left: .65rem;
+            line-height: .59rem;
+        }
+
+        body .header .search-box .search-ipt .search-item {
+            font-size: .28rem;
+            background: #F5F5FD;
+            width: 4.5rem;
+        }
+
+
+        /* 历史部分开始 */
+        .history {
+            width: 100%;
+            height: 19rem;
+            /* margin-top: 1.28rem; */
+        }
+
+        .history-content {
+            padding-top: .42rem;
+        }
+
+        .history .history-btn {
+            /* position: relative; */
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .history-btn .iconshanchu-01 {
+            margin-right: .28rem;
+            font-size: .35rem;
+        }
+
+        .history-btn .history-note {
+            /* position: absolute; */
+            font-size: .32rem;
+            font-weight: bold;
+            color: rgba(51, 51, 51, 1);
+            padding-left: .28rem;
+        }
+
+        .history-main {
+            margin-top: .41rem;
+            overflow: hidden;
+            margin-left: .38rem;
+            margin-right: .28rem;
+        }
+
+        .history-item {
+            /* display: flex; */
+            /* align-items: center; */
+            width: 1.36rem;
+            height: .54rem;
+            border: .01rem solid rgba(204, 204, 204, .3);
+            border-radius: .27rem;
+            text-align: center;
+            line-height: .54rem;
+            margin-right: .30rem;
+            float: left;
+            margin-bottom: .2rem;
+        }
+
+        .history-item span {
+            opacity: 1;
+            color: rgba(102, 102, 102, 1);
+        }
+
+        .border {
+            width: 100%;
+            height: .14rem;
+            margin-top: 1.09rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 头部部分开始 -->
+    <div class="header">
+        <div class="header-content">
+            <i class="iconfont iconiconfontjiantou1 link-to" data-href="../../html/index.html"></i>
+            <div class="search-box">
+                <div class="serch-content">
+                    <i class="iconfont iconsousuo"></i>
+                    <div class="search-ipt">
+                        <input type="text" class="search-item" name="" placeholder="请输入商品名称">
+                    </div>
+                </div>
+            </div>
+            <div class="header-span link-to" data-href="../../html/page/index-search-result.html">搜索</div>
+        </div>
+    </div>
+    <div class="border"></div>
+    <!-- 历史部分开始 -->
+    <div class="history">
+        <div class="history-content">
+            <div class="history-btn">
+                <div class="history-note">历史记录</div>
+                <i class="iconfont iconshanchu-01"></i>
+            </div>
+            <div class="history-main">
+                <div class="history-item"><span>swisse</span></div>
+                <div class="history-item"><span>毛巾</span></div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="../../js/jquery-3.3.1.min.js"></script>
+    <script src="../../js/swiper.js"></script>
+    <script src="../../js/hui.js"></script>
+    <script src="../../js/hui-refresh-load-more.js"></script>
+    <script src="../../js/common.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            /* 获取搜索历史 */
+            function getHistory() {
+                reqAjax('/api/app/get_keyword_history', {}, function (res) {
+                    if (res.code == 1) {
+                        console.log(res)
+                        var dt = res.data || [];
+                        var html = "";
+                        dt.map(function (v) {
+                            html += '<div class="history-item"><span class="main-detail">'
+                                + v.goods_name + '</span></div>'
+                        });
+                        $('.history-main').html(html);
+                    }
+                });
+            }
+            /*删除搜索历史 */
+            function delHistory() {
+                $(".iconshanchu-01").click(function () {
+                    reqAjax('/api/app/del_keyword_history', {}, function (res) {
+                        if (res.code == 1) {
+                            console.log(res)
+                            var dt = res.data || [];
+                            var html = "";
+                            dt.map(function (v) {
+                                html += '<div class="history-item"><span class="main-detail">'
+                                    + v.goods_name + '</span></div>'
+                            });
+                            $('.history-main').html(html);
+                        }
+                    });
+                })
+            }
+        })
+    </script>
+</body>
+
+</html>

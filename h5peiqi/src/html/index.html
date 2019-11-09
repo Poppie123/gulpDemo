@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/common.css">
+    <title>index页面</title>
+    <style>
+        .footer{
+            width: 100%;
+            height: .54rem;
+            position: fixed;
+            bottom: 0;
+            background-color: #fff;
+        }
+        .footer .item{
+            float: left;
+            width: 25%;
+            height: 100%;
+        }
+        .footer .item img{
+            width: .24rem;
+            height: .24rem;
+            margin: .1rem auto 0;
+        }
+        .footer .item .text{
+            width: 100%;
+            height: .13rem;
+            line-height: .14rem;
+            text-align: center;
+            font-size: .11rem;
+            color: #999;
+
+        }
+        .footer .item .f-img{
+            display: block;
+        }
+        .footer .item .s-img{
+            display: none;
+        }
+        .footer .active .f-img{
+            display: none;
+        }
+        .footer .active .s-img{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="footer">
+        <div class="item active">
+            <img class="f-img" src="../image/page_index_01.png">
+            <img class="s-img" src="../image/page_index_01_active.png" alt="">
+            <div class="text">首页</div>
+        </div>
+        <div class="item">
+            <img class="f-img" src="../image/page_index_02.png">
+            <img class="s-img" src="../image/page_index_02_active.png">
+            <div class="text">分类</div>
+        </div>
+        <div class="item">
+            <img class="f-img" src="../image/page_index_03.png">
+            <img class="s-img" src="../image/page_index_03_active.png">
+            <div class="text">购物车</div>
+        </div>
+        <div class="item">
+            <img class="f-img" src="../image/page_index_04.png">
+            <img class="s-img" src="../image/page_index_04_active.png">
+            <div class="text">我的</div>
+        </div>
+    </div>
+</body>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="../js/common.js"></script>
+<script>
+     $('.footer .item').click(function(){
+         $(this).addClass('active').siblings().removeClass('active')
+     })
+</script>
+</html>

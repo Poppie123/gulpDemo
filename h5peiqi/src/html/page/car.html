@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../css/mui.min.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1190625_m3wxzcfcc89.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/config.css">
+    <title>Document</title>
+    <style>
+        html,body{
+            background-color: #FAFAFE;
+        }
+        .header{
+            z-index: 100;
+            border-bottom: 1px solid #F2F2F2;
+        }
+        .header .fr{
+            font-size: .14rem;
+            color: #333;
+        }
+        .main{
+            width: 100%;
+        }
+        .car_list{
+            width: 100%;
+            padding: 0 .14rem;
+            
+        }
+        .car_list .item{
+            width: 100%;
+            height: 1.12rem;
+            padding: 0 .1rem;
+            border-radius: .02rem;
+            background-color: #fff;
+            margin-top: .1rem;
+        }
+        .car_list .item .select_check{
+            width: .2rem;
+            height: .2rem;
+            border-radius: 50%;
+            border: 1px solid #333C3C;
+        }
+        .car_list .item .select_check i{
+            display: none;
+        }
+        .car_list .item .active{
+            border: 1px solid #9C53F6;
+        }
+        .car_list .item .active i{
+            display:block;
+            font-size: .24rem;
+            position: relative;
+            left: -0.03rem;
+            top: -0.04rem;
+            color: #9C53F6;
+
+        }
+        .car_list .item >img{
+            width: .82rem;
+            height: .82rem;
+            border-radius: .03rem;
+        }
+        .car_list .item .right{
+            width: 2.04rem;
+            height: .82rem;
+        }
+        .car_list .item .desc{
+            width: 100%;
+            height: .3rem;
+            line-height: .15rem;
+            font-size: .12rem;
+            color: #333;
+        }
+        .car_list .item .guige{
+            width: 100%;
+            text-align: left;
+            font-size: .14rem;
+            color: #999;
+        }
+        .car_list .item .price{
+            width: 100%;
+             
+        }
+        .car_list .item .price .left_price{
+            font-size: .14rem;
+            font-weight: bold;
+        }
+        .car_list .item .price .num_jisuan{
+            width: auto;
+            height: .18rem;
+            border: 1px solid #ccc;
+        }
+        .car_list .item .price .num_jisuan .jian{
+            width: .23rem;
+            height: 100%;
+            text-align: center;
+            line-height: .14rem;
+        }
+        .car_list .item .price .num_jisuan .num_value{
+            min-width: .23rem;
+            height: 100%;
+            text-align: center;
+            line-height: .18rem;
+            font-size: .14rem;
+            color: #333;
+            border-left: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+        }
+        .car_list .item .price .num_jisuan .jia{
+            width: .23rem;
+            text-align: center;
+            height: 100%;
+            line-height: .17rem;
+        }
+        .bt-footer{
+            width: 100%;
+            height: .44rem;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            padding-left: .14rem;
+            position: fixed;
+            bottom: .54rem;
+        }
+        .bt-footer .selectAll{
+            float: left;
+            height: 100%;
+        }
+        .bt-footer .selectAll span{
+            font-size: .14rem;
+            color: #666;
+            margin-left: .06rem;
+            position: relative;
+            top: -0.01rem;
+        }
+        .bt-footer .total_price{
+            height: 100%;
+            float: right;
+        }
+        .bt-footer .total_price span:first-child{
+            font-size: .14rem;
+            color: #333;
+        }
+        .bt-footer .total_price span:last-child{
+            font-size: .18rem;
+            font-weight: bold;
+            margin-right: .14rem;
+        }
+        .bt-footer .btn{
+            width: 1.28rem;
+            height: .44rem;
+            text-align: center;
+            line-height: .44rem;
+            font-size: .16rem;
+            color: #fff;
+            float: right;
+        }
+        .bt-footer .select_check{
+            width: .2rem;
+            height: .2rem;
+            border-radius: 50%;
+            border: 1px solid #333C3C;
+        }
+        .bt-footer .select_check i{
+            display: none;
+        }
+        .bt-footer .active{
+            border: 1px solid #9C53F6;
+        }
+        .bt-footer .active i{
+            display:block;
+            font-size: .24rem;
+            position: relative;
+            left: -0.03rem;
+            top: -0.04rem;
+            color: #9C53F6;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="header mui-bar mui-bar-nav flex align-items space-between">
+        <a class=""></a>
+        <h1 class="mui-title">购物车</h1>
+        <span class="fr">管理商品</span>
+    </header>
+    <div class="main">
+        <div class="car_list">
+            <div class="item flex align-items space-between">
+                <div class="select_check active">
+                     <i class="iconfont icon-round_check_fill app-font-color"></i>
+                </div>
+                <img src="../../image/goods_01.png" alt="">
+                <div class="right flex flex_wrap align-content-strech">
+                    <div class="desc ellipsis2">五星级酒店专用经典床上用品四件套纯棉品质可定制五星级酒店专用经典床上用品四件套纯棉品质可定制</div>
+                    <div class="guige">粉丝#401</div>
+                    <div class="price flex align-items space-between">
+                        <div class="left_price app-price-Color">￥132</div>
+                        <div class="num_jisuan flex space-between align-items">
+                            <div class="jian">-</div>
+                            <div class="num_value">1</div>
+                            <div class="jia">+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item flex align-items space-between">
+                <div class="select_check">
+                    <i class="iconfont icon-round_check_fill app-font-color"></i>
+                </div>
+                <img src="../../image/goods_01.png" alt="">
+                <div class="right flex flex_wrap align-content-strech">
+                    <div class="desc ellipsis2">五星级酒店专用经典床上用品四件套纯棉品质可定制五星级酒店专用经典床上用品四件套纯棉品质可定制</div>
+                    <div class="guige">粉丝#401</div>
+                    <div class="price flex align-items space-between">
+                        <div class="left_price app-price-Color">￥132</div>
+                        <div class="num_jisuan flex space-between align-items">
+                            <div class="jian">-</div>
+                            <div class="num_value">1</div>
+                            <div class="jia">+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bt-footer">
+        <div class="selectAll flex align-items space-between">
+            <div class="select_check">
+                <i class="iconfont icon-round_check_fill"></i>
+            </div>
+            <span>全选</span>
+        </div>
+        <div class="btn app-bg-color">去结算<span>(1)</span></div>
+        <div class="total_price flex flex_center align-items">
+            <span>合计: </span>
+            <span class="app-price-Color">￥132.00</span>
+        </div>
+        
+    </div>
+    <div class="footer">
+        <div class="item ">
+            <img class="f-img" src="../../image/page_index_01.png">
+            <img class="s-img" src="../../image/page_index_01_active.png" alt="">
+            <div class="text">首页</div>
+        </div>
+        <div class="item ">
+            <img class="f-img" src="../../image/page_index_02.png">
+            <img class="s-img" src="../../image/page_index_02_active.png">
+            <div class="text">分类</div>
+        </div>
+        <div class="item active">
+            <img class="f-img" src="../../image/page_index_03.png">
+            <img class="s-img" src="../../image/page_index_03_active.png">
+            <div class="text">购物车</div>
+        </div>
+        <div class="item">
+            <img class="f-img" src="../../image/page_index_04.png">
+            <img class="s-img" src="../../image/page_index_04_active.png">
+            <div class="text">我的</div>
+        </div>
+    </div>
+</body>
+<script src="../../js/jquery-3.3.1.min.js"></script>
+<script src="../../js/common.js"></script>
+<script>
+    $(document).on('click','.slidebar .item',function(){
+        $(this).addClass('sildebar-active').siblings().removeClass('sildebar-active');
+    })
+</script>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/iconfont.css">
+    <title>商品详细评价</title>
+    <style>
+    .container{
+        padding-bottom: 1.38rem;
+        padding-top: 1.92rem;
+    }
+    .container .head p{
+        margin-left: -.36rem;
+        font-size: .36rem;
+    }
+    /* 页面头部 */
+    .header{
+        width: 100%;
+        min-height: 1.04rem;
+        position: fixed;
+        top: .88rem;
+        font-size: .28rem;
+        padding: .24rem .29rem;
+        background: #fff;
+    }
+    .header .active{
+        background:#856FFF;
+        color: #FEFEFE;
+    }
+    .header_o{
+        width: 1.93rem;
+        height: .54rem;
+        border-radius:.27rem;
+        background: #D8DADC;
+        color: #fff;
+        line-height: .54rem;
+        text-align: center;
+        margin-right: .3rem;
+    }
+    /* 页面内容 */
+    .main{
+        width: 100%;
+        height: auto;
+        padding-top: .2rem;
+    }
+    .main li{
+        width: 100%;
+        height: auto;
+        background: #fff;
+        margin-bottom: .1rem;
+    }
+    .eval_cen{
+        width: 100%;
+        height: auto;
+        padding: .3rem .28rem;
+        font-size: .28rem;
+    }
+    .eval_cent{
+        width: 100%;
+        height: .4rem;
+        line-height: .4rem;
+        margin-bottom: .2rem;
+    }
+    .eval_centl{
+        width: auto;
+        height: .4rem;
+    }
+    .eval_centl img{
+        width: .4rem;
+        height: .4rem;
+        margin-right: .1rem;
+    }
+    .eval_centl span{
+        color: #999;
+    }
+    .eval_centr{
+        width: auto;
+        height: .4rem;
+    }
+    .eval_centr i{
+        color: #999;
+        font-size: .3rem;
+        margin-right: .2rem;
+    }
+    .eval_centr .active{
+        color: #9C53F6;
+    }
+    .eval_centr span{
+        color: #9C53F6;
+    }
+    .eval_cenc{
+        width: auto;
+        height: .2rem;
+        font-size: .22rem;
+        color: #999;
+        line-height: .2rem;
+        margin-bottom: .25rem;
+    }
+    .eval_cenb{
+        width: 100%;
+        height: auto;
+        color: #333;
+        line-height: .4rem;
+        margin-bottom: .3rem;
+    }
+    .eval_img{
+        width: 100%;
+        height: 2.2rem;
+    }
+    .eval_img img{
+        width: 2.2rem;
+        height: 2.2rem;
+        margin-right: .15rem;
+    }
+    .eval_talk{
+        width: 100%;
+        height: auto;
+        background: #FFFBF2;
+        padding: .2rem .21rem;
+        margin-top: .3rem;
+        font-size: .24rem;
+    }
+    .eval_talk p{
+        width: auto;
+        height: .25rem;
+        color: #999;
+        margin-bottom: .15rem;
+    }
+    .eval_talk span{
+        color:#666;   
+        line-height: .4rem;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 页面头部 -->
+        <div class="head flexc">
+            <i id="hrefh" class="iconfont iconiconfontjiantou1"></i>
+            <p>商品评价</p>
+            <span ></span>
+        </div>
+        <div class="header flex">
+            <div class="header_o active">全部(2568)</div>
+            <div class="header_o">有图(128)</div>
+        </div>
+        <!-- 页面内容 -->
+        <div class="main">
+            <ul>
+                <li>
+                    <div class="eval_cen">
+                        <div class="eval_cent flexc">
+                            <div class="eval_centl flex">
+                                <img src="../image/header.png">
+                                <span>爱丽丝</span>
+                            </div>
+                            <div class="eval_centr flex">
+                                <i class="iconfont iconstar active"></i>
+                                <i class="iconfont iconstar active"></i>
+                                <i class="iconfont iconstar active"></i>
+                                <i class="iconfont iconstar active"></i>
+                                <i class="iconfont iconstar active"></i>
+                                <span>5.0分</span>
+                            </div>
+                        </div>
+                        <div class="eval_cenc">2019-05-22  16:22</div>
+                        <div class="eval_cenb">检查过了是正品,质量超好，很开心的一次网购。第一次用这个平台，没想价格便宜，东西又好，还会再来</div>
+                        <div class="eval_img flexc">
+                            <img src="../image/photo13.png">
+                            <img src="../image/photo13.png">
+                            <img src="../image/photo13.png">
+                        </div>
+                        <div class="eval_talk">
+                           <p>商家回复：</p>
+                           <span>感谢您对本产品的支持，我们会继续推荐更优质的包包，期待您的下次惠顾!!</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="../../js/common.js"></script>
+    <script src="../../js/iconfont.js"></script>
+    <script src="../../js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            //返回
+            $('#hrefh').click(function(){
+                history.go(-1);
+            })
+            //切换
+            $('.header_o').click(function(){
+                $(this).addClass('active').siblings().removeClass('active');
+            })
+        })
+    </script>
+</body>
+</html>

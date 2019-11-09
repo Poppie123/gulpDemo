@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <style>
+        .container{
+            position: relative;
+        }
+        .box1{
+            width: 106px;
+            height: 106px;
+            border: 1px solid #999;
+            position: absolute;
+            top: 200px;
+            left: 150px;
+        }
+        .container .active{
+            width: 212px;
+            height:212px;
+            border: 2px solid #999;
+            position: absolute;
+            top: 147px;
+            left: 97px;
+        }
+        .container .active .box{
+            width: 200px;
+            height: 200px;
+            border: 6px solid #456213;
+            border-radius: 50%;
+            transform: rotate(45deg);
+            border-color: #456213 #456213 #456213 transparent;
+        }
+        .container .active .box2{
+            border: 20px solid #456213;
+            top: 66px;
+            left: -16px;
+            width: 0;
+            height: 0;
+            border-color:transparent transparent #456213 transparent;
+            position: absolute;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid #456213;
+            border-color: #456213 #456213 #456213 transparent;
+            transform: rotate(45deg);
+        }
+        .box2{
+            width: 0;
+            height: 0;
+            border: 10px solid #456213;
+            border-color:transparent transparent #456213 transparent;
+            position: absolute;
+            top: 33px;
+            left: -8px;
+        }
+        .xuanzhuan{
+            animation: fucks 1.5s linear infinite;
+        }
+        .fangda{
+           animation: fangda 1s forwards linear;
+        }
+        .suoxiao{
+            animation: suoxiao 1s forwards linear;
+        }
+        @keyframes fangda{
+           from{transform: scale(1)}
+           to{transform: scale(2)}
+        }
+        @keyframes suoxiao{
+           from{transform: scale(1)}
+           to{transform: scale(0.5)}
+        }
+        @keyframes fucks{
+            from{transform:rotateZ(0deg)}
+            to{transform:rotateZ(360deg)}
+        }
+        .btn{
+            width: 50px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            background: #999;
+            position: absolute;
+            top: 160px;
+            left: 100px;
+        }
+        .btn2{
+            width: 50px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            background: #999;
+            position: absolute;
+            top: 160px;
+            left: 230px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+    
+    <div class="box1 ">
+        <div class="box"></div>
+        <div class="box2"></div>
+    </div>
+    <div id="start" class="btn">开始</div>
+    <div id="stop" class="btn2">结束</div>
+</div>
+    <script src="../peiqi/src/js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#start').click(function(){
+                $('.box1').addClass('fangda');
+                setTimeout(function(){
+                    $('.box1').removeClass('fangda')
+                    $('.box1').addClass('active')
+                    $('.box1').addClass('xuanzhuan');
+                },2000)
+                
+            })
+            $('#stop').click(function(){
+                $('.box1').removeClass('xuanzhuan')
+                $('.box1').addClass('suoxiao');
+                setTimeout(function(){
+                    $('.box1').removeClass('suoxiao')
+                    $('.box1').removeClass('active')
+                },2000)
+            })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,IAAI,CAAA;EACA,KAAK,EAAE,IAAI;CAId;;AALD,AAEI,IAFA,CAEA,IAAI,CAAA;EACA,KAAK,EAAE,IAAI;CACd",
+    "sources": [
+        "indexy.scss"
+    ],
+    "names": [],
+    "file": "indexy.css"
+}

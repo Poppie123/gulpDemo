@@ -1,0 +1,140 @@
+body{
+    background:rgba(245,245,249,1);
+}
+
+/* 头部部分开始 */
+.header{
+    width: 100%;
+    height: 2.32rem;  
+    background:linear-gradient(to bottom,#9C53F6,#5E43F5)
+}
+.header-content{
+    position: relative;
+}
+.header .iconfont{
+    position: absolute;
+    color: #FFFFFF;
+    padding-top: 0.71rem;
+    padding-left: 0.28rem;
+}
+ .header .font{
+    position: absolute;
+    padding-top: 0.65rem;
+    padding-left: 3.4rem;
+    color: #fff;
+    font-size: 0.36rem;
+    font-weight: bolder;
+} 
+
+/* 头部部分结束 */
+
+/* banner部分开始 */
+ .banner{
+     width: 100%;
+     height: 1.65rem;  
+ }
+ .banner-content{
+    width: 6.94rem;
+    height: 1.65rem;
+    border-radius: 0.1rem;
+    box-shadow:.01rem 0px .13rem 0px rgba(99,99,99,0.1);
+    background-color: #fff;
+    margin: -1.04rem 0.28rem 0;
+    display: flex;
+    overflow: hidden;
+    justify-content: space-around;
+    align-items: center;   
+ }
+ .big-box{
+     text-align: center;
+     /* width: 50%; */
+     position: relative;
+ }
+ .banner .circle1{
+    width:.12rem;
+    height:.12rem;
+    background:rgba(255,0,0,1);
+    border-radius:50%;
+    /* margin-top: -.06rem; */
+    margin-left:.8rem;
+    position: absolute;
+}
+ .banner  img{
+     width: 0.72rem;
+     height: 0.72rem;
+     /* border: .01rem solid red; */
+}
+.banner .xtxx{
+    font-size:.24rem;
+    font-weight:400;
+    color:rgba(51,51,51,1);
+    padding-top: .08rem;
+}
+.banner .iconxiaoxi{
+    position: absolute;
+    font-size: .32rem;
+    color: rgba(255,255,255,1);
+    line-height: .72rem;
+    margin-left: .18rem;
+}
+/* banner部分结束 */
+
+/* middle部分开始 */
+.middle{
+    width: 100%;
+    height: 1.66rem;
+    margin-top: .2rem;
+}
+.middle-content{
+    position: relative;
+    width: 6.94rem;
+    height: 1.66rem;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 0.1rem;
+    box-shadow:.01rem 0px .13rem 0px rgba(99,99,99,0.1);  
+}
+.middle img{
+    position: absolute;
+    width: 0.99rem;
+    height: 0.99rem;
+    margin-top: 0.35rem;
+    margin-left: 0.30rem;
+}
+.middle .num{
+    position: absolute;
+    width: 0.46rem;
+    height: 0.34rem;
+    border-radius: .17rem;
+    font-size: 0.24rem;
+    background-color: #F3435A;
+    color: #fff;
+    margin-top: 0.2rem;
+    margin-left:1.04rem;
+    text-align: center;
+}
+.middle .fl{
+    position: absolute;
+    margin-top: 0.43rem;
+    margin-left:1.58rem;
+    font-size: 0.32rem;
+    font-weight:400;
+    color:rgba(51,51,51,1);
+}
+.buy{
+    position: absolute;
+    margin-top: 1.01rem;
+    font-size: 0.24rem;
+    margin-left:1.59rem;
+    color: #999999;
+}
+.middle .fr{
+    position: absolute;
+    font-size: 0.24rem;
+    color: #999999;
+    margin-top: 0.30rem;
+    margin-left:6.02rem;
+}
+
+
+/* middle部分开始 */

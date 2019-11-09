@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/iconfont.css">
+    <link rel="stylesheet" href="../../css/hui.css">
+    <title>我的系统</title>
+    <style>
+        .container{
+        padding-bottom: 1.2rem;
+        background: #FAFAFE;
+    }
+    .container .head p{
+        margin-left: -.36rem;
+        font-size: .36rem;
+    }
+        /* 页面头部 */
+    .header{
+        width: 100%;
+        height: .85rem;
+        line-height: .85rem;
+        padding: 0 .28rem;
+        margin-bottom: 1.85rem;
+    }
+    .header i{
+        font-size: .3rem;
+        color: #999;
+    }
+    .header span{
+        font-size: .4rem;
+        color: #333;
+        font-weight: bold;
+    }
+    /* 主要内容 */
+    .main{
+        width: 2.7rem;
+        height: 3rem;
+        margin: 0 auto 5.88rem;
+        text-align: center;
+    }
+    .main img{
+        width: 1.83rem;
+        height: 1.83rem;
+        margin: 0 auto ;
+    }
+    .main span{
+        font-size: .32rem;
+        color: #645686;
+        font-weight: bold;
+        line-height: .9rem;
+    }
+    .main p{
+        font-size: .24rem;
+        color: #645686;
+        line-height: .12rem;
+    }
+    /* 页面底部 */
+    .bot{
+        width: 3.5rem;
+        height: .8rem;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .bot p{
+        font-size: .2rem;
+        color: #666;
+        line-height: .4rem;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 页面头部 -->
+        <div class="header flexc">
+           <i class="iconfont iconiconfontjiantou1 link-to" data-href="../user/my.html"></i>
+           <span>我的系统</span>
+           <span></span>
+        </div>
+        <!-- 主要内容 -->
+        <div class="main">
+            <img src="">
+            <span>配骑</span>
+            <p>配骑专业酒店宾馆供应商</p>
+        </div>
+        <!-- 页面底部 -->
+        <div class="bot">
+            <p>版本号v1.0</p>
+            <p>coporight @ 配骑专业酒店宾馆供应商</p>
+        </div>
+    </div>
+    <script src="../../js/iconfont.js"></script>
+    <script src="../../js/jquery-3.3.1.min.js"></script>
+    <script src="../../js/hui.js"></script>
+    <script src="../../js/common.js"></script>
+    <script>
+        $(document).ready(function(){
+            //拿取logo
+            reqAjax('/api/app/get_logo', {}, function (res) {
+                if (res.code == 1) {
+                    var dt = res.data || [];
+                    $('.main img').attr('src',dt.logo)
+                }
+            })
+        })
+    </script>
+</body>
+</html>

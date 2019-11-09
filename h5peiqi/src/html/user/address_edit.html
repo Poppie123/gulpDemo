@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../css/mui.min.css">
+    <link rel="stylesheet" href="http:////at.alicdn.com/t/font_1190625_n3wlu0ewu1n.css">
+    <link rel="stylesheet" href="../../css/hui.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/config.css">
+    <title>编辑地址</title>
+    <style>
+        html,body{
+            background-color: #FAFAFE;
+        }
+        .item_list{
+            width: 100%;
+            padding: 0 .14rem;
+            background-color: #fff;
+        }
+        .item{
+            width: 100%;
+            height: .45rem;
+            border-bottom: 1px solid #eee;
+        }
+        .item .right input{
+            font-size: .14rem;
+            color: #333;
+        }
+        .item .right input::-moz-placeholder{color:#999;}              
+        .item .right input::-webkit-input-placeholder{color:#999;}     
+        .item .right input:-ms-input-placeholder{color:#999;} 
+        .item >span{
+            width: 0.68rem;
+            font-size: .14rem;
+            color: #999;
+        }
+        .item .right .set_default{
+            float: left;
+            margin-right: .28rem;
+        }
+        .set_default{
+            width: auto;
+        }
+        .set_default .checkicon {
+           width: .15rem;
+           height: .15rem;
+           border-radius: 50%;
+           border: 1px solid #333C3C;
+           position: relative;
+        }
+        .set_default .checkicon i{
+           display: none;
+           font-size: .2rem;
+           position: absolute;
+           left: -0.04rem;
+           top: -0.05rem;
+        }
+        .set_default .active i{
+            display: block;
+        }
+        .set_default span{
+            font-size: .12rem;
+            color: #666;
+            display: inline;
+            margin-left: .04rem;
+        }
+        .chose_address .right{
+            width: 2rem;
+            text-align: right;
+            font-size: .14rem;
+            color: #999;
+        }
+        .chose_address .right i{
+            font-size: .14rem;
+        }
+        .btn-bg{
+            width: 100%;
+            height: .85rem;
+            overflow: hidden;
+            position: fixed;
+            bottom: 0;
+            background-color: #FAFAFE;
+        }
+        .btn-add{
+            width: 3.47rem;
+            height: .44rem;
+            margin-top: .1rem;
+            line-height: .44rem;
+            margin: 0 auto;
+            background: transparent;
+            border: 1px solid #333C3C;
+        }
+        .hasdata{
+            color: #333;
+        }
+        .hui-picker-menu{
+            height: .46rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">编辑地址</h1>
+    </header>
+    <div class="main">
+        <div class="item_list">
+            <div class="item flex align-items flex_start">
+                <span>联系人:</span>
+                <div class="right">
+                    <input type="text" class="user-name" value="张明" placeholder="请输入联系人姓名">
+                </div>
+            </div>
+            <div class="item flex align-items flex_start">
+                <span>性别:</span>
+                <div class="right">
+                    <div class="set_default flex flex_start align-items">
+                        <div class="checkicon  fl man" data-sex="1">
+                            <i class="iconfont icon-round_check_fill app-font-color"></i>
+                        </div>
+                        <span class="fl">先生</span>
+                    </div>
+                    <div class="set_default flex flex_start align-items">
+                        <div class="checkicon  fl woman" data-sex="2">
+                            <i class="iconfont icon-round_check_fill app-font-color"></i>
+                        </div>
+                        <span class="fl">女士</span>
+                    </div>
+                </div>
+            </div>
+            <div class="item flex align-items flex_start">
+                <span>手机号:</span>
+                <div class="right">
+                    <input type="number" class="user-phone" value="15639761388" placeholder="请输入联系人电话">
+                </div>
+            </div>
+            <div class="item chose_address  flex align-items space-between" id="picker">
+                <span>选择地区:</span>
+                <div class="right">
+                    <span class="hasdata">河南省 郑州市 二七区</span>
+                    <i class="iconfont icon-gengduo"></i>
+                </div>
+            </div>
+            <div class="item flex align-items flex_start">
+                <span>具体地址:</span>
+                <div class="right">
+                    <input type="text" class="address" placeholder="请输入具体的收货地址">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="btn-bg">
+        <div class="btn-add btn-dan">保存地址</div>
+    </div>
+</body>
+<script src="../../js/jquery-3.3.1.min.js"></script>
+<script src="../../js/hui.js"></script>
+<script src="../../js/hui-picker.js"></script>
+<script src="../../js/common.js"></script>
+<script>
+    $(document).ready(function(){
+        var id = getQueryString('id');
+        var status = getQueryString('status');
+        var province;
+        var city;
+        var district;
+        var picker = new huiPicker('#picker',function(){
+            var sheng   = picker.getText(0);
+                province = picker.getVal(0);
+            var shi     = picker.getText(1);
+                city    = picker.getVal(1);
+            var qu      = picker.getText(2);
+                district = picker.getVal(2);
+            var ssq     = "";
+            if (sheng == shi) {
+                ssq =  sheng+"市"+qu
+            }else{
+                ssq = sheng+"省"+shi+"市"+qu;
+            }
+            hui('#picker .hasdata').html(ssq);
+        })
+        picker.level = 3;
+        ajax('/api/user/area_list',{},function(res){
+            picker.bindRelevanceData(JSON.parse(res))
+        })
+        getAddressInfo()
+        function getAddressInfo(){
+            ajax('/api/user/get_edit_address_info',{address_id:id},function(res){
+                var v = res.data;
+                var sheng   = v.address_text.province_text;
+                province = v.province
+                var shi     = v.address_text.city_text;
+                city = v.city;
+                var qu      = v.address_text.district_text;
+                district = v.district;
+                var ssq     = "";
+                if (sheng == shi) {
+                    ssq =  sheng+"市"+qu
+                }else{
+                    ssq = sheng+"省"+shi+"市"+qu;
+                }
+                hui('#picker .hasdata').html(ssq);
+                var {name,sex,phone,address} = res.data;
+                $('.user-name').val(name);
+                $('.user-phone').val(phone);
+                $('.address').val(address)
+                sex == 1 ? $('.man').addClass('active') : $('.woman').addClass('active');
+            })
+        }
+        // 给setdefault添加默认事件
+        $('.set_default').click(function(){
+            var _this = this;
+            $('.set_default').each(function(){
+                var $checkicon = $(this).find('.checkicon');
+                _this == this?$checkicon.addClass('active'):$checkicon.removeClass('active');
+            })
+        })
+        //添加地址
+        $('.btn-add').click(function(){
+             var name = $('.user-name').val();
+             var sex  = $('.set_default .active').data('sex');
+             var phone = $('.user-phone').val();
+             var address = $('.address').val();
+             ajax('/api/user/edit_my_address',{
+                address_id:id,
+                name:name,
+                sex:sex,
+                phone:phone,
+                address:address,
+                province:province,
+                city:city,
+                district:district,
+                status:status,
+             },function(res){
+                 if (res.code == 1) {
+                    hui.toast('修改成功');
+                    setTimeout(() => {
+                       history.go(-1)
+                    }, 500);
+                 }
+             })
+        })
+
+    })
+   
+    
+
+</script>
+</html>

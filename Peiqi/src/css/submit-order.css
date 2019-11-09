@@ -1,0 +1,315 @@
+body{
+    background:rgba(245,245,249,1);
+}
+
+/* 提交订单开始 */
+.header{
+    display: flex;
+    align-items: center;
+    width:100%;
+    height:.93rem; 
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    font-size: 0;
+    background: #FFFFFF;
+    border-bottom: .01rem solid rgba(246,246,246,1);
+}
+
+.iconiconfontjiantou1{
+    margin-left:.28rem;
+    font-size: .3rem;
+    color:#999999;
+}
+.header-write{ 
+    margin-left:2.6rem;
+    text-align: center;
+    font-size:.36rem;
+    font-weight:400;
+    color:rgba(51,51,51,1);
+}
+
+/* 地址开始 */
+.receiver{
+    overflow: visible;
+    width: 100%;
+    font-size: 0;
+    height: 2.56rem;
+    margin-top: .93rem;
+    background: rgba(255,255,255,1);
+}
+.select-address{
+    font-size:.28rem;
+    font-weight:400;
+    color:rgba(153,153,153,1);
+    line-height: 2.56rem;
+    margin-left: .27rem;
+}
+.message{
+    overflow: visible;
+    position: relative;
+}
+.who{
+    margin-top:.31rem;
+    position: absolute;
+    font-size:.28rem;
+    font-weight:400;
+    color:rgba(102,102,102,1);
+    opacity:0.5;
+    margin-left: .25rem;
+}
+.tel{
+    margin-top: .88rem;
+    margin-left: .28rem;
+}
+.name{
+    position: absolute;
+    font-size:.32rem;
+    font-weight:bold;
+    color:rgba(51,51,51,1);
+    margin-left: 1.21rem;
+    margin-top:.29rem;
+}
+.phone{
+    margin-left: 1.20rem;
+    margin-top:.89rem;
+}
+.receiver-location{
+    margin-left:.25rem;
+    margin-top: 1.44rem;
+}
+.location-detail{
+    margin-left: 1.22rem;
+    margin-top: 1.41rem;
+    margin-right: .44rem;
+}
+.border{
+    width: 100%;
+    height: .02rem;
+    background: url(../image/order-detail-bottom.png);
+    background-size: 100% .02rem;
+}
+
+/* 商品详情开始 */
+.many-order{
+    margin-top: .2rem;
+    width: 100%;
+    background: rgba(255,255,255,1);
+}
+.product{
+    position: relative;
+    height: 1.73rem;
+}
+.product img{
+    position: absolute;
+    width: 1.16rem;
+    height: 1.16rem;
+    margin-left: .27rem;
+    margin-top: .3rem;
+}
+.ft{
+    position: absolute;
+    font-weight:400;
+}
+.warter{
+    font-size:.28rem;
+    color:rgba(51,51,51,1);
+    margin-left: 1.62rem;
+    margin-top: .2rem;
+    line-height:.34rem;
+}
+.ml{
+    font-size:.24rem;
+    color:rgba(153,153,153,1);
+    margin-left: 1.65rem;
+    margin-top: .89rem;
+}
+.ft-right{
+    font-size:.28rem;
+    color:rgba(153,153,153,1);
+    margin-left: 7.01rem;
+    margin-top: 1.29rem;
+}
+.ft-money{
+    font-size:.28rem;
+    color:rgba(51,51,51,1);
+    margin-left: 1.58rem;
+    margin-top: 1.22rem;
+}
+.line{
+    width:5.91rem;
+    height:.01rem;
+    background:rgba(238,238,238,1);
+    margin-left: 1.59rem;
+}
+.line-all{
+    width: 100%;
+    margin-left: 0;
+}
+/* 结算开始 */
+.order-bottom{
+    height: 1.67rem;
+    display: flex;
+    flex-direction: column;
+}
+.fr{
+    width: 100%;
+    display: flex;
+    line-height: .82rem;
+    justify-content: space-between;
+    border-bottom: .01rem solid rgba(238,238,238,1);
+}
+.fr-left{
+    margin-left: .29rem;
+    font-size:.24rem;
+    font-weight:400;
+    color:rgba(153,153,153,1);
+}
+.fr-right{
+    margin-right: .28rem;
+    font-size:.24rem;
+    font-weight:400;
+    color:rgba(51,51,51,1);
+}
+.fr-bottom{
+    /* display: flex;
+    justify-content: space-between; */
+    width: 100%;
+    height: .84rem;
+    line-height: .84rem;
+    position: relative;
+    overflow: hidden;
+}
+.many-pro .second{
+    color: #333333;
+}
+.many-pro{
+    position: absolute;
+    margin-left: 3.18rem; 
+}
+.order-money{
+    float: right;
+    /* position: absolute;
+    margin-left: 4.67rem; */
+    margin-right: .28rem;
+}
+.fr-money{
+    /* position: absolute; */
+    font-size:.32rem;
+    color:rgba(51,51,51,1);
+    /* margin-left:5.78rem;
+    margin-right: 0; */
+}
+
+/* 支付方式开始  */
+.order{
+    background: rgba(255,255,255,1);
+    margin-top: .2rem;
+}
+
+.order-message{
+    position: relative;
+    width: 100%;
+    height:.9rem;
+}
+.border-left{
+    position: absolute;
+    height: .25rem;
+    border-left: 4px solid rgba(135,115,223,1);
+    margin-top: .33rem;
+    margin-left: .28rem;
+}
+.order-message-write{
+    line-height: .9rem;
+    position: absolute;
+    font-size:.28rem;
+    font-weight:bold;
+    color:rgba(51,51,51,1);
+    margin-left: .45rem;
+}
+.order-null{
+    width:6.95rem;
+    height:1px;
+    background:rgba(238,238,238,1);
+    margin: 0 auto;
+}
+.order-item{
+    margin-top: .4rem;
+    overflow: hidden;
+    width: 100%;
+}
+.fl{
+    width: 100%;
+    position: relative;
+}
+.order .fl img{
+    width: .89rem;
+    height: .89rem;
+    margin-left: .28rem;
+}
+.order .fl .left{
+    position: absolute;
+    font-size:.26rem;
+    font-weight:400;
+    color:rgba(51,51,51,1);
+    margin-left: .21rem;
+    margin-top: .07rem;
+}
+.order .fl .right{
+    position: absolute;
+    font-size:.24rem;
+    font-weight:400;
+    color:rgba(153,153,153,1);
+    margin-left: .21rem;
+    margin-top: .50rem;
+}
+.iconduihao2, .iconbig-circle{
+    position: absolute;
+    font-size: .4rem;
+    color:#9C53F6;
+    opacity: 1;
+    margin-left: 5.33rem;
+    margin-top: .2rem;
+  }
+  .iconbig-circle{
+    color:#333C3C;
+  }
+
+
+/* 底部开始 */
+.footer{
+    width: 100%;
+    height: .88rem;  
+    margin-top: .32rem;
+  }
+.footer-content{
+    width: 100%;
+    height: .88rem;
+    position: fixed;
+    display: flex;
+    bottom: 0;
+    justify-content: space-between;
+    line-height: .88rem;
+    
+    background: #FFFFFF;
+  }
+.footer .footer-item{
+    width: 50%;
+    height: .88rem;
+  }
+.footer .footer-all{
+    font-size: .20rem;
+    color:rgba(51,51,51,1);
+    padding-left: .28rem;
+}
+.footer .footer-money{
+    font-size:.36rem;
+    font-weight:bold;
+    color:rgba(245,180,67,1);
+}
+.go-pay{
+    text-align: center;
+    font-size: .32rem;
+    background:rgba(156,83,246,1);
+    color:rgba(255,255,255,1);
+}
